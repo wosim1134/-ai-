@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 함수</title>
+</head>
+<body>
+    <h1>1</h1>
+    <script>
+
+// let a키 = 169
+// let a체중 = 55
+// let a정상체중
+// a정상체중 = (a키-100)*0.9
+// console.log('정상체중', a정상체중)
+// console.log('몸무게 차이', a체중 - a정상체중)
+
+// let b키 = 165
+// let b체중 = 48
+// let b정상체중
+// b정상체중 = (b키-100)*0.9
+// console.log('정상체중', b정상체중)
+// console.log('몸무게 차이', b체중 - b정상체중)
+
+
+function 정상체중구하기(가져온키, 가져온체중) {
+    //함수가 수행할 작업들을 이곳에 작성
+
+    let 키 = 가져온키 // 키 가져오기
+    let 체중 = 가져온체중 // 체중 가져오기
+    let 정상몸무게 = (키-100) * 0.9 //정상 체중 계산
+    console.log("정상 체중", 정상몸무게) //정상 몸무게 출력
+    console.log("몸무게 차이", 체중 - 정상몸무게) //몸무게 차이 출력
+
+}
+console.log('데이터')
+정상체중구하기(169, 55)
+console.log('데이터')
+정상체중구하기(165, 48)
+console.log('데이터')
+정상체중구하기(178, 83)
+console.log('데이터')
+정상체중구하기(189, 73)
+
+
+    </script>
+    
+</body>
+</html>
