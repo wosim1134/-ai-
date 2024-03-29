@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 복습</title>
+</head>
+<body>
+
+
+    <h1>h1태그</h1>
+    <h2>h2태그</h2>
+    <h3>h3태그</h3>
+
+
+
+
+
+
+    <script>
+
+        // 함수: 명령어 모아서 만들어놓고 나중에 쉽게 실행하는 매크로
+
+        function 평균점수(점수1, 점수2, 점수3) {
+            
+            let = 평균 = (점수1 + 점수2 + 점수3) / 3 // 평균점수 계산
+            console.log(평균) // 평균점수 출력
+        }
+
+        평균점수(100, 45, 68)
+        평균점수(100, 98, 28)
+
+
+
+
+
+        // DOM 사용 순서: 1. 원하는 대상 선택하기 2. 조작하기
+        
+        let h1지정 = document.querySelector("h1") // "" 안 쓰면 변수를 지정
+
+        let h2지정 = document.querySelector("h2") // "" 안 쓰면 변수를 지정
+
+        let h3지정 = document.querySelector("h3") // "" 안 쓰면 변수를 지정
+
+        // 2단어로 된 스타일은 대문자로 구분하여 써야함
+        // text-align -> textAlign
+        // background-color -> backgroundColor
+
+        h1지정.style.color = "blue"
+        h2지정.style.margin = "50px"
+        h3지정.style.border = "3px solid red"
+        h3지정.style.width = "200px"
+        h3지정.style.height = "50px"
+        h3지정.style.borderRadius = "5px"
+        h3지정.style.textAlign = "5px"
+
+
+
+
+
+        // 콜백 함수 (익명함수, 이름 없는 함수)
+
+        function 전교등수(점수1, 점수2, function () {} ) {
+
+        }
+
+        function 전교등수(점수1, 점수2, 함수)
+
+        function 함수(){}
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>
