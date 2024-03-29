@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 과제</title>
+</head>
+<body>
+    <h1 style="width: 300px; height: 150px; background-color: mediumturquoise;">나는 </h1>
+
+    <h2 style="width: 300px; height: 150px; background-color: blue;">나는</h2>
+
+    <script>
+        버튼1 = document.querySelector("h1")
+        버튼2 = document.querySelector("h2")
+
+        버튼1.addEventListener("mousedown", function () {
+            버튼1.style.backgroundColor ="yellow" })
+
+        버튼1.addEventListener("mouseup", function () {
+            버튼1.style.backgroundColor ="mediumturquoise" })
+
+        버튼2.addEventListener("mousedown", function () {
+            버튼2.style.backgroundColor ="green" })
+            
+        버튼2.addEventListener("mouseup", function () {
+            버튼2.style.backgroundColor ="blue" })
+
+    </script>
+
+</body>
+</html>

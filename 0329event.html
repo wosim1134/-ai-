@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 이벤트</title>
+</head>
+<body>
+
+    <button style="width: 200px; height: 100px; border-radius: 30px;">
+        버튼
+    </button>
+
+    <script>
+
+
+
+
+        // 이벤트 사용법 : 해당 태그의 이벤트를 지정해주면 됨
+
+        // 1. 지정한다
+
+        let 버튼 = document.querySelector("button")
+
+
+
+        // 2. 조작한다.
+        // addEventListener("이벤트 종류", 동작)
+        // event Listener : 이벤트를 듣고 그에 따라 동작를 실행
+
+        버튼.addEventListener("click", function () { //click : 클릭
+            console.log("버튼 클릭 이벤트 실행했음")
+            // alert("버튼 클릭함") // 경고 메세지 출력
+        })
+
+        버튼.addEventListener("mouseover", function () { // mouseover : 마우스를 위에 올림 over
+            console.log("마우스를 갖다 댐")
+        })
+
+        버튼.addEventListener("mouseout", function () { // mouseout : 마우스가 멀리 떨어짐, 나감.
+            console.log("마우스 나감")
+        })
+
+        버튼.addEventListener("mousedown", function () { // mousedown : 마우스 누르는 것
+            console.log("mouse down 실행")               // 굳이 누르는 거 때는거 구별 안하면 click
+        })
+
+        버튼.addEventListener("mouseup", function () { // mouse : 눌렀던 마우스를 때는 것
+            console.log("mouse up 실행")
+        })
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
