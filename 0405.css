@@ -1,0 +1,19 @@
+#t1 {
+    font-size: 20pt;
+    font-weight:900;
+    letter-spacing: 10px;
+}
+#t2 {
+    line-height: 50px;
+    text-decoration: underline;
+}
+#t3 {
+    font-style:italic;
+    font-size: 40pt;
+    text-shadow: 5px 5px 5px purple;
+    color: rgb(93, 114, 238)
+}
+
+li {
+    list-style: none;
+}
