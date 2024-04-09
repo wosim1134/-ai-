@@ -4,8 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>table</title>
+
+
+
 <style>
+
     *{margin: 0px;}
+
+
+    #q1 {font-size: 40px;
+    font-weight: 800;
+    color: blueviolet;}
+
+
+    td {width: 100px;
+    height: 50px;
+    border: 2px black solid;
+    text-align: center;}
+
+    tr {border: 5px black solid;}
+
+
+    table {
+        border: 8px black solid;
+        border-collapse: collapse;
+    }
 </style>
 
 
@@ -13,18 +36,11 @@
 <body>
 
 
+<p id="q1">table</p>
 
 
 
-
-<p>table</p>
-
-
-
-
-
-
-<table border="1" style="color: blue;">
+<table style="color: blue;">
 
     <tr>
         <td>1번줄 1번칸</td>
@@ -33,31 +49,21 @@
     </tr>
     <tr>
         <td>2번줄 1번칸</td>
-        <td colspan="2" style="text-align: center;">2번줄 2번칸</td> <!-- colspan : colum span -->
+        <td colspan="2">2번줄 2번칸</td> <!-- colspan : colum span -->
     </tr>
     <tr>
-        <td rowspan="2">3번줄 1번칸</td>
+        <td rowspan="3">3번줄 1번칸</td>
         <td>3번줄 2번칸</td>
         <td>3번줄 3번칸</td>
     </tr>
     <tr>
-        <td>4번줄 1번칸</td>
-        <td>4번줄 2번칸</td>
+        <td rowspan="2">4번줄 2번칸</td>
         <td>4번줄 3번칸</td>
     </tr>
+    <tr>
+        <td>5번줄 3번칸</td>
+    </tr>
 </table>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
