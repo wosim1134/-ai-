@@ -28,6 +28,7 @@
     table {
         border: 8px black solid;
         border-collapse: collapse;
+        color: blue;
     }
 </style>
 
@@ -40,16 +41,29 @@
 
 
 
-<table style="color: blue;">
 
+    <caption>
+        캡션
+    </caption>
+
+    <colgroup>
+        <col style="background-color: aqua;">
+        <col>
+        <col style="background-color: cornflowerblue;">
+    </colgroup>
+
+<thead>
     <tr>
         <td>1번줄 1번칸</td>
-        <td>1번중 2번칸</td>
+        <th>1번중 2번칸</th>
         <td>1번줄 3번칸</td>
     </tr>
+</thead>
+
+<tbody>
     <tr>
         <td>2번줄 1번칸</td>
-        <td colspan="2">2번줄 2번칸</td> <!-- colspan : colum span -->
+        <td colspan="2">2번줄 2번칸</td> <!-- colspan : column span -->
     </tr>
     <tr>
         <td rowspan="3">3번줄 1번칸</td>
@@ -63,6 +77,22 @@
     <tr>
         <td>5번줄 3번칸</td>
     </tr>
+</tbody>
+
+<tfoot>
+    <tr>
+        <td>6번줄 1번칸</td>
+        <td>6번줄 2번칸</td>
+        <td>6번줄 3번칸</td>
+    </tr>
+</tfoot>
+
+
+
+
+
+
+
 </table>
 
 
