@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 실습 2</title>
+
+<style>
+td {
+    border: 2px dotted black;
+    text-align: center;
+}
+table {border-collapse: collapse;
+border: 2px solid black;
+height: 300px;
+width: 1200px;}
+thead {
+    width: 20%;
+    height: 20%;
+}
+tbody {
+    width: 20%;
+    height: 60%;
+}
+tfoot {
+    width: 20%;
+    height: 20%;
+}
+</style>
+
+</head>
+<body>
+
+    <table>
+        <caption>
+            캡션태그 자리
+        </caption>
+
+        <colgroup>
+            <col>
+            <col style="background-color: aqua;">
+            <col style="background-color: greenyellow;">
+            <col>
+        </colgroup>
+
+        <thead>
+            <tr>
+                <td colspan="5">(colspan=4)table 태그 내부에 tr태그 넣고, tr 태그 내부에 td 태그를 넣는다,</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>thead, tbody, tfoot 사용할 것</td>
+                <td>caption으로 표에 대한 설명 넣을 것</td>
+                <td>colgroup 이용해 스타일 적용하기</td>
+                <td>table 태그는 다양하게 활용된다</td>
+            </tr>
+
+            <tr>
+                <th colspan="2">(colspan=2) td 대신 th태그 사용한 자리</th>
+                <td rowspan="2">(rowspan=2)	</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>각 칸의 width, hieght 조절하기	</td>
+                <td>colgroup 이용해 스타일 적용하기	</td>
+                <td></td>
+                
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td>글씨는 가운데 정렬 적용	</td>
+                <td>border-collapse 넣기	</td>
+                <td>표 내부는 점선으로 테두리 적용	</td>
+                <td>표 외부는 실선으로 테두리 적용</td>
+            </tr>
+        </tfoot>
+
+    </table>
+<hr>
+
+</body>
+</html>
