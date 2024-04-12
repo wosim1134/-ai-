@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>복습</title>
+
+
+    <style>
+        .box {width: 200px;
+        height: 200px;
+        background-color: aqua;}
+    </style>
+
+
+
+
+
+</head>
+<body>
+
+    <div class="box">박스</div>
+
+
+    <script>
+
+        계산기(1, 5)
+        계산기(79, 654)
+
+
+        function 계산기(a, b) {
+        let 계산결과
+        계산결과 = a + b
+        console.log(계산결과)
+    }
+
+    let 변수
+    변수 = function () {}
+    let a
+    let b
+    console.log(a, b)
+
+    // 콜백함수, 함수도 일종의 데이터로 취급하며 할당하는 것
+    // 함수 내의 코드가 데이터로 취급된다.
+
+    // 이벤트 웹 페이지 상에서 일어나는 동작, 사건들
+    // 마우스 클릭, 드레그, 마우스 이동, 마우스 터치
+    // 키보드 입력. ex) wasd
+    // 웹 페이지 로딩완료, 사이즈 변경
+    // 이벤트가 일어날 때 마다 그에 따른 동작, 코드를 실행할 수 있다.
+
+    //DOM의 기본 원리 1. 대상 지정 2. 지정 대상 조작
+
+    let 박스 = document.querySelector(".box")
+    박스.addEventListener("click", function () {
+        console.log("마우스 클릭")
+    } )
+    박스.addEventListener("mouseover", function () {
+        console.log("마우스 가다뎀")
+        박스.style.backgroundColor ="blue"
+    } )
+    박스.addEventListener("mouseout", function () {
+        console.log("마우스 벗어남")
+        박스.style.backgroundColor ="aqua"
+    } )
+    박스.addEventListener("mouseup", function () {
+        console.log("마우스 뗌")
+        박스.style.backgroundColor ="aqua"
+    } )
+    박스.addEventListener("mousedown", function () {
+        console.log("마우스 누름"), 
+        박스.style.backgroundColor ="green"
+    } )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>
