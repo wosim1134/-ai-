@@ -7,13 +7,16 @@
 
 <style>
     .q1{
+        color: #fff;
+        font-size: 30pt;
+        font-weight: bold;
         background-color: aqua;
         width: 200px;
         height: 50px;
         border-radius: 10px;
+        border: none;
+        margin: 20px;
     }
-
-    #e1{width: 1000px;}
 
     #img {width: 600px;
     height: 600px;}
@@ -25,11 +28,11 @@
 <body>
     <h1>버튼 클릭에 따른 이미지 슬라이드</h1>
 
-    <div id="e1">
+    
     <button class="q1" id="a1">1</button>
     <button class="q1" id="a2">2</button>
     <button class="q1" id="a3">3</button>
-    </div>
+    
     <br>
     <img id="img" src="/img-1.JPG" alt="이미지X">
 
@@ -42,7 +45,7 @@
         console.log("1")
 
         let r1 = document.querySelector("#img")
-        r1.setAttribute("src", "/img-1.JPG")
+        r1.src = 'img-1.JPG'
 
         })
 
