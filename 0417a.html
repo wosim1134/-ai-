@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성 조작</title>
+
+
+<style>
+    #img{
+        width: 200px;
+    }
+</style>
+
+
+
+
+</head>
+<body>
+    <h1>ㅇㄴㅁㅇㄴㅁㅇㄴㅁㅇ</h1>
+    <img id="img" src="/img-1.JPG" alt="이미지X">
+
+    <script>
+
+
+        let 이미지 = document.querySelector("#img")
+        console.log(이미지)
+
+
+
+
+        //이미지.setAttribute(내가 조작할 속성, 무엇으로 변경할지)
+        이미지.setAttribute("src", "/img-2.png")
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
