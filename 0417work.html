@@ -5,54 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>work</title>
 
+<style>
+    .q1{
+        background-color: aqua;
+        width: 200px;
+        height: 50px;
+        border-radius: 10px;
+    }
 
+    #e1{width: 1000px;}
 
+    #img {width: 600px;
+    height: 600px;}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</style>
 
 
 </head>
 <body>
-
-
     <h1>버튼 클릭에 따른 이미지 슬라이드</h1>
 
-
-
-
-
-
+    <div id="e1">
+    <button class="q1" id="a1">1</button>
+    <button class="q1" id="a2">2</button>
+    <button class="q1" id="a3">3</button>
+    </div>
+    <br>
+    <img id="img" src="/img-1.JPG" alt="이미지X">
 
 
     <script>
 
+
+        let w1 = document.querySelector("#a1")
+        w1.addEventListener("click", function () {
+        console.log("1")
+
+        let r1 = document.querySelector("#img")
+        r1.setAttribute("src", "/img-1.JPG")
+
+        })
+
+
+        let w2 = document.querySelector("#a2")
+        w2.addEventListener("click", function () {
+        console.log("2")
+
+        let r1 = document.querySelector("#img")
+        r1.setAttribute("src", "/img-2.png")
+
+
+        })
+
+
+        let w3 = document.querySelector("#a3")
+        w3.addEventListener("click", function () {
+        console.log("3")
+
+        let r1 = document.querySelector("#img")
+        r1.setAttribute("src", "/img-3.jpg")
+
+        })
+
+
+
+
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
