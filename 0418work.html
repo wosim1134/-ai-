@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습5</title>
+
+    <style>
+        #q1 {
+            font-size: 50px;
+            color: blue;
+            font-weight: 900;
+        }
+        #q2 {
+            font-size: 30px;
+            color: blue;
+            font-weight: 900;
+        }
+        .fi {
+            background-color: lightblue;
+            border: none;
+            width: 600px;
+        }
+
+        .t1 {
+            font-weight: 700;
+        }
+
+        .g1 {
+            width: 250px;
+            height: 60px;
+            background-color: blue;
+            color: azure;
+            font-weight: 900;
+        }
+
+        * {margin: 3px;}
+    </style>
+
+
+
+
+
+</head>
+<body>
+
+    <br>
+
+    <p id="q1">회원가입 페이지</p>
+    <br>
+    <br>
+
+    <form action="">
+
+        <fieldset class="fi">
+            <br>
+
+            <p id="q2">로그인 정보</p>
+            <br>
+
+            <p style="color: gray; font-size: 13px;">로그인에 사용할 ID와 비밀번호를 입력해 주세요</p>
+            <hr>
+
+            <p class="t1">아이디</p>
+            <label for="아이디"><input placeholder="최대 10자" type="text" name="in" id="i1"></label>
+            <br><br>
+
+            <p class="t1">비밀번호</p>
+            <label for="비밀번호"><input placeholder="영어 숫자 섞어서" type="password" name="pa" id="p1"></label>
+            <br><br>
+
+            <p class="t1">비밀번호 확인</p>
+            <label for="비밀번호 확인"><input placeholder="영어 숫자 섞어서" type="password" name="pa" id="p2"></label>
+
+        </fieldset>
+<br>
+        <fieldset class="fi">
+            <br><br>
+
+            <p id="q2">개인정보</p>
+            <br>
+
+            <p style="color: gray; font-size: 13px;">여러분의 개인정보를 입력해주세요</p>
+            <hr>
+
+            <p class="t1">주소</p>
+            <br>
+            <label for="주소"><input placeholder="ㅇㅇ구 ㅇㅇ동" type="text"></label>
+            <br><br>
+
+
+
+            <p class="t1">연령대</p>
+            <br>
+
+            <label><input type="radio" name="z1">10~19</label>
+            <label><input type="radio" name="z1">20~29</label>
+            <label><input type="radio" name="z1">30~39</label>
+            <label><input type="radio" name="z1">40~49</label>
+            <label><input type="radio" name="z1">50이상</label>
+
+<br>
+            <p class="t1">성별</p>
+            <br>
+            <label><input type="radio" name="n1">남</label>
+            <label><input type="radio" name="n1">여</label>
+<br><br>
+            <p class="t1">취미</p>
+            <br>
+            <label><input type="checkbox" name="h1">게임</label>
+            <label><input type="checkbox" name="h1">유튜브</label>
+            <label><input type="checkbox" name="h1">음악</label> <br>
+            <label><input type="checkbox" name="h1">운동</label>
+            <label><input type="checkbox" name="h1">독서</label>
+            <label><input type="checkbox" name="h1">여행</label>
+            <label><input type="checkbox" name="h1">창작</label>
+
+
+<br><br>
+
+        </fieldset>
+        <br>
+
+<div style="text-align: center; width: 620px;">
+
+        <button type="submit" class="g1">회원가입</button>
+
+        <button type="reset" class="g1">다시입력</button>
+
+
+
+    </div>
+
+    </form>
+
+
+
+
+
+</body>
+</html>
