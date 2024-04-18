@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습6</title>
+
+    <style>
+        #q1 {
+            font-size: 50px;
+            font-weight: 900;
+        }
+        #q2 {
+            font-size: 30px;
+            font-weight: 900;
+        }
+        #q3 {
+            font-weight: 900;
+        }
+    </style>
+
+
+
+
+
+
+</head>
+<body>
+
+    <form action="">
+
+        <fieldset>
+            <legend id="q1">회원가입 페이지</legend>
+            <p id="q2">로그인 정보</p>
+
+            <label id="q3" for="">ID 입력<input placeholder="최대 10자" type="text" required></label> <br>
+            <label id="q3" for="">PW 입력<input placeholder="영어, 숫자 섞어서" type="text" required></label> <br>
+            <label id="q3" for="">PW 입력확인<input placeholder="영어, 숫자 섞어서" type="text" required></label> <hr>
+
+            <p id="q2">개인정보</p>
+
+            <p id="q3">주소</p>
+
+            <label for=""><input type="text" required></label>
+
+
+            <p id="q3">연령대</p>
+
+            <label><input type="radio" name="n1">10~19</label>
+            <label><input type="radio" name="n1">20~29</label>
+            <label><input type="radio" name="n1">30~39</label>
+            <label><input type="radio" name="n1">40~49</label>
+            <label><input type="radio" name="n1">50이상</label>
+
+            <p id="q3">성별</p>
+
+            <label><input type="radio" name="n2">남</label>
+            <label><input type="radio" name="n2">여</label>
+
+            <p id="q3">취미</p>
+
+            <label><input type="checkbox">게임</label>
+            <label><input type="checkbox">유튜브</label>
+            <label><input type="checkbox">잉여짓</label>
+            <label><input type="checkbox">운동</label>
+            <label><input type="checkbox">독서</label>
+            <label><input type="checkbox">여행</label>
+            <label><input type="checkbox">창작</label>
+            <br>
+
+
+            <p id="q3">이메일</p>
+
+            <label><input placeholder="abcd@naver.com" type="email" required></label>
+
+            <p id="q3">연락처</p>
+
+            <label><input placeholder="000-0000-0000" type="tel" required></label>
+
+            <p id="q3">생년월일</p>
+
+            <label><input type="date" required></label> <br><br>
+
+            <label>키(최소130 최대195 기본150 단위5)<input type="range" min="130" max="195" step="5" value="150"></label><br><br>
+
+            <label>사진<input type="file"></label><hr>
+
+            <button type="submit">회원 가입</button>
+            <button type="reset">다시 입력</button>
+
+
+        </fieldset>
+
+    </form>
+
+</body>
+</html>
