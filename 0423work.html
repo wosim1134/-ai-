@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+
+    <style>
+        * {
+            margin: 0px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #d1 {
+            background-color: rgb(213, 213, 213);
+        }
+        #i1 {
+            font-size: 30px;
+            font-weight: 800;
+        }
+        #i2 {
+            color: rgb(147, 147, 147);
+            font-size: 15px;
+        }
+        #i3 {
+            font-size: 25px;
+            font-weight: 800;
+        }
+        #i4{
+            font-size: 20px;
+            font-weight: 800;
+        }
+        .c1 {
+            text-align: center;
+        }
+        #d2 {
+            background-color: white;
+            width: 800px;
+            border-radius: 20px;
+            border: 2px black dotted;
+        }
+        .img {
+            width: 80px;
+            height: 50px;
+        }
+        .l1 {
+            padding: 20px;
+            line-height: 40px;
+            font-size: 13px;
+        }
+        .l2 {
+            line-height: 40px;
+            font-weight: 900;
+            padding: 20px;
+        }
+        .bu {
+            width: 150px;
+            height: 50px;
+            background-color: aqua;
+            text-align: center;
+            font-weight: 900;
+            border-radius: 10px;
+            margin: 20px;
+        }
+        #d3{
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+    </style>
+
+
+
+
+
+</head>
+<body>
+    <form>
+    <div id="d1">
+
+    <p class="c1" id="i1">주문 페이지</p>
+    <p class="c1" id="i2">치킨 주문을 위한 페이지 입니다. 정확한 내용을 기재 바랍니다.</p><br>
+
+    <div class="c1" id="d2">
+        <p id="i3">메뉴 선택</p>
+        <p id="i2" style="line-height: 30px;">사진을 누르면 메뉴가 선택됨</p>
+
+        <label><input type="radio" name="as"><img class="img" src="/img-1.JPG" alt="">dddddd</label>
+        <label><input type="radio" name="as"><img class="img" src="/img-2.png" alt="">ssssss</label>
+        <label><input type="radio" name="as"><img class="img" src="/img-3.jpg" alt="">ffffff</label>
+        <br><br><br><hr><br>
+        <p id="i4">사이드 메뉴</p><br>
+        <label><input type="checkbox" name="ad">치즈볼</label>
+        <label><input type="checkbox" name="ad">치킨무</label>
+        <label><input type="checkbox" name="ad">머스타드 소스</label>
+        <label><input type="checkbox" name="ad">칠리 소스</label>
+        <br><br><br>
+        <p id="i4">선택사항</p><br>
+        <label><input type="checkbox" name="af">비닐 장갑</label>
+        <label><input type="checkbox" name="af">나무젓가락 제외</label>
+        <label><input type="checkbox" name="af">치킨 무 제외</label>
+        <label><input type="checkbox" name="af">소스 제외</label>
+        <br><br>
+        <label>맵기(1~5)<input type="range" min="1" max="5"></label><br><br>
+        <label> 소스양
+            <select>
+                <option value="1">많음</option>
+                <option value="2">보통</option>
+                <option value="3">적음</option>
+            </select>
+        </label><br><br><br>
+
+        <p id="i4">기타 희망사항</p><br>
+
+        <label>
+            <textarea name="" id="" cols="60" rows="5"></textarea>
+        </label><br><br>
+    </div><br><br>
+    <div id="d2"><br>
+        <p class="c1" id="i3">주문 정보</p>
+        <p id="i2" style="line-height: 30px; text-align: center;">주문자의 정보</p>
+        <label class="l1">주문자 성명 <input type="text" placeholder="홍길동"></label><br>
+        <label class="l1">전화번호 <input type="tel" placeholder="000-0000-0000"></label><br>
+        <label class="l1">주소 <input type="text" placeholder="ㅇㅇ동 ㅇㅇ번지"></label><br>
+        <label class="l1">쿠폰번호 <input type="text" placeholder="0000-0000-0000"></label><br>
+        <label class="l1">도착날짜 <input type="date"></label><br>
+
+        <label class="l2">지불방법 </label>
+        <label><input type="radio" name="ag">카드</label>
+        <label><input type="radio" name="ag">쿠폰</label>
+        <label><input type="radio" name="ag">현금</label>
+        <br>
+
+        <label class="l2">카드사 </label>
+        <label><input type="radio" name="ah">신한</label>
+        <label><input type="radio" name="ah">국민</label>
+        <label><input type="radio" name="ah">카카오</label>
+        <br>
+
+        <label class="l1">카드번호 <input placeholder="000-0000-0000" type="text"></label><br><br><br>
+
+
+
+    </div>
+    <br><br>
+
+    <div id="d2"><br>
+
+        <p class="c1" id="i3">개인 정보 수집 및 이용 동의</p>
+        <p id="i2" style="line-height: 30px; text-align: center;">주문 정보를 저장하기 위해 회원의 개인정보를 수집하고 있으며, 수집에 동의하지 않으면 주문이 불가능 합니다.</p>
+
+        <label style="padding: 10px;"></label>
+        <label><input type="radio" name="aq">동의</label>
+        <label><input type="radio" name="aq">거절</label><br><hr>
+
+        <p class="c1" id="i3">이벤트 문자 및 알림 수신</p>
+        <p id="i2" style="line-height: 30px; text-align: center;">이벤트 및 각종 혜택 정보 제공을 위한 문자 전송을 수신합니다.</p>
+
+        <label style="padding: 10px;"></label>
+        <label><input type="radio" name="at">동의</label>
+        <label><input type="radio" name="at">거절</label><br>
+<br><br>
+
+
+    </div>
+<br><br>
+
+
+
+<div id="d3">
+    <button type="submit" class="bu">주문</button>
+    <button type="reset" class="bu">주문취소</button>
+</div>
+
+<br><br><br><br>
+    </div>
+
+</form>
+
+</body>
+</html>
+
