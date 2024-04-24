@@ -4,8 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+
+
+
+
+
+
+
+
 </head>
 <body>
-    
+
+    <img src="/img-1.JPG" width="200px">
+
+    <input type="text"> <button>데이터입력</button>
+
+
+
+
+
+    <script>
+
+        let 변수
+
+        let 이미지 = document.querySelector("img")
+        변수 = 이미지.getAttribute("width")
+        변수 = 변수 + 100
+        console.log(변수)
+
+        let 입력칸
+        입력칸 = document.querySelector("input")
+
+        let 버튼 = document.querySelector("button")
+        버튼.addEventListener("click", function () {
+            let 데이터 = 입력칸.getAttribute('value')
+            console.log(데이터)
+        })
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
