@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6실습</title>
+<style>
+    #i1 {font-size: 30px;
+    font-weight: 700;}
+</style>
+</head>
+<body>
+
+    <p id="i1">IQ 테스트</p>
+
+    이름<input type="text" id="a1">
+    <br><br>
+    나이<input type="text" id="a2">
+    <br><br>
+    성별<input type="text" id="a3">
+    <br><br>
+    <button>제출</button>
+
+    <script>
+
+        let a1 = document.querySelector("#a1")
+        let a2 = document.querySelector("#a2")
+        let a3 = document.querySelector("#a3")
+        let 제출 = document.querySelector("button")
+
+
+        제출.addEventListener("click", function () {
+            a1 = a1.value
+            a2 = a2.value
+            a3 = a3.value
+            alert(`${a1}님, ${a2}살에 ${a3}맞습니까?`)
+        })
+
+    </script>
+
+</body>
+</html>
