@@ -4,8 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </head>
 <body>
-    
+
+    <h1>Emmet : 메크로</h1>
+
+    <button id="b1">as</button>
+    <button id="b2">sd</button>
+    <button id="b3">df</button>
+    <br>
+    <img src="/img-1.JPG" width="200px">
+    <script>
+
+        let 버튼1 = document.querySelector("#b1")
+        let 버튼2 = document.querySelector("#b2")
+        let 버튼3 = document.querySelector("#b3")
+
+
+        let 이미지 = document.querySelector("img")
+
+
+        버튼1.addEventListener("click", function() {
+        이미지.setAttribute("src", "/img-1.JPG")
+        })
+
+        버튼2.addEventListener("click", function() {
+        이미지.setAttribute("src", "/img-2.png")
+        })
+
+        버튼3.addEventListener("click", function() {
+        이미지.setAttribute("src", "/img-3.jpg")
+        })
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
