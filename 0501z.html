@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom</title>
+
+    <style>
+        * {background-color: yellow;}
+
+        .parent {width: 500px; height: 200px; background-color: rgb(108, 108, 108);}
+        .parent2 {width: 500px; height: 200px; background-color: rgb(255, 49, 49);}
+
+        .child {color: rgb(44, 13, 203); font-weight: 900; font-style: italic; background-color: rgb(255, 49, 49);}
+    </style>
+
+
+
+</head>
+<body>
+
+<div class="parent">
+    div 박스
+</div>
+
+
+<br><br><br><br><br>
+
+
+<div class="parent2">
+    div 박스
+</div>
+
+
+
+    <script>
+
+        let 태그
+        태그 = document.createElement("p")
+        console.log(태그)
+
+        태그.textContent = "안녕하세요"
+        태그.classList.add("child")
+        console.log(태그)
+
+        let 박스 = document.querySelector(".parent")
+        박스.appendChild(태그)
+
+        let 박스2 = document.querySelector(".parent2")
+        박스2.appendChild(태그)
+
+
+
+
+    </script>
+
+</body>
+</html>
