@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom</title>
+
+    <style>
+
+        * {margin: 10px;}
+
+        .box {width: 300px; height: 300px; background-color: chocolate;}
+        .text {color: #FFF; font-size: 20pt; font-weight: 900;}
+
+    </style>
+
+</head>
+<body>
+
+<div class="box text">박스, 택스트 클래스</div>
+
+<div id="target">타겟</div>
+
+
+
+    <script>
+
+        let 두번째div = document.querySelector('#target')
+
+        두번째div.classList.add("box")
+        두번째div.classList.add("text")
+
+        두번째div.textContent = 두번째div.textContent + "dsadsa"
+
+        두번째div.innerHTML += '<h1>h1태그 사용함</h1>'
+
+
+
+    </script>
+
+</body>
+</html>
