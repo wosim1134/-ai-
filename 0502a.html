@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css</title>
+
+    <style>
+
+        .box {
+            width: 250px;
+            height: 250px;
+            background-color: aquamarine;
+            border: 2px solid black;
+            display: inline-block;
+            overflow: auto;
+        }
+
+        a {
+            display: block;
+        }
+
+
+
+
+    </style>
+
+
+
+
+</head>
+<body>
+
+    <h1>블록 레벨</h1>
+    <p>블록 레벨 태그: 본인의 덩치와 상관 없이 한 줄 전체를 차지하는 태그</p>
+    <p>태그 하나에 무조건 한 줄을 차지한다.</p>
+    <h3>h1~h6, p, ol-ul-li, table-tr, div</h3>
+
+<br><br>
+
+
+    <h1>인라인 레벨(in-line)</h1>
+    <p>인라인 레벨 태그: 본인의 덩치 많큼만 영역을 차지 하는 레벨</p>
+    <p>그래서 width, height 못 줌</p>
+    <p>margin, padding은 좌우로만 적용 가능</p>
+
+    <h3>a, img, label-input, span, button</h3>
+
+    <a href="#" style="background-color: aquamarine; width: 200px; margin-top: 100px;">a 태그</a>
+    <a href="#" style="background-color: aquamarine; width: 200px;">a 태그</a>
+    <a href="#" style="background-color: aquamarine; width: 200px;">a 태그</a>
+
+    <br><br><br>
+
+    <h1>인라인 - 블록레벨의 공존가능?</h1>
+    <h3>블록 레벨 안에 인라인 레벨이 들어 갈수 있는가? ok 가능함</h3>
+    <h3>블록 레벨 안에 인라인 레벨이 들어 갈수 있는가? XXX</h3>
+
+    <h3>블록 레벨 안에 블록 레벨이 들어 갈수 있는가? ok 가능함</h3>
+
+    <h3>인라인 레벨 안에 인라인 레벨이 들어 갈수 있는가? ok 가능함</h3>
+
+    <div class="box">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis laboriosam totam esse sed unde quibusdam atque officiis recusandae, necessitatibus minima reprehenderit quisquam cum, ex nam tenetur est accusantium nihil repellat vel minus maiores. Modi esse possimus blanditiis voluptatum magni consequuntur dolorum rem facilis veniam dolorem doloribus voluptate neque reiciendis id, mollitia distinctio, enim fuga! Nemo voluptas perferendis minima! Numquam repellendus voluptate facere esse obcaecati quas quo, eveniet tempore reprehenderit sapiente perspiciatis pariatur nulla eos nihil nisi ullam quidem odit hic? Iusto quaerat, nam nihil ad, magnam ducimus inventore natus fugit exercitationem quasi alias repellendus ab dolores? Dolore dicta architecto aliquam?</div>
+    <div class="box">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia, reiciendis maxime et, aliquam aspernatur velit voluptas dolores quidem quasi fugit eaque laudantium expedita dignissimos sequi itaque? Sed distinctio enim doloremque ad tempore? Praesentium accusamus similique perspiciatis error consectetur? Dolor placeat aliquid alias deserunt, voluptatibus dolores eius sed vitae veritatis accusantium dicta sapiente reiciendis animi natus libero voluptate facilis voluptates eveniet ratione ut a at. Modi, blanditiis. Aut accusamus, esse suscipit ipsum doloribus voluptas hic fugiat libero sed sapiente autem ipsam. Esse, illum vero? Voluptatum, earum eligendi laudantium ducimus consequatur dolores esse quisquam reiciendis ad cumque nostrum eos quod fuga vel!</div>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><hr>
+</body>
+</html>
