@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4회차</title>
+    <style>
+        button {width: 300px; height: 50px; font-size: 20pt;}
+        #wrap {display: flex;}
+        #wrap div { width: 300px; height: 300px; border: 1px black solid; text-align: center;}
+    </style>
+</head>
+
+<body>
+    <h1>마우스로 술래잡기</h1>
+
+    <button id="start">술래잡기 시작</button>
+    <button id="end">술래잡기 정지</button>
+    <br><br>
+
+    <div id="wrap">
+        <div id="box1">
+            <h1>박스1</h1>
+        </div>
+
+        <div id="box2">
+            <h1>박스2</h1>
+        </div>
+
+        <div id="box3">
+            <h1>박스3</h1>
+        </div>
+    </div>
+
+
+    <script>
+        시작 = document.querySelector("#start")
+        중지 = document.querySelector("#end")
+        let start = 0
+
+        document.addEventListener("mouseover", function() {
+            box1 = document.querySelector("#box1")
+            box2 = document.querySelector("#box2")
+            box3 = document.querySelector("#box3")
+        } )
+
+        시작.addEventListener("click", function() {
+            if(start == 0) {
+                start = 1
+
+                img = document.createElement("img")
+                img.setAttribute("src", "/img-1.JPG")
+                img.setAttribute("width", "200")
+
+                box1.appendChild(img)
+                par = 1
+
+                img.addEventListener("mouseover", function() {
+                    console.log("현재 부모:", par)
+
+                    if(par == 1) {
+                        par = 2
+                        box2.appendChild(img)
+                    }
+                    else if(par == 2) {
+                        par = 3
+                        box3.appendChild(img)
+                    }
+                    else if(par == 3) {
+                        par = 1
+                        box1.appendChild(img)
+                    }
+                    console.log("이동한 곳:", par)
+
+                })
+            }
+        })
+        중지.addEventListener("click", function() {
+            if(start == 1) {
+                start = 0
+
+                img = document.querySelector("img")
+
+                if(par == 1) {
+                    box1.removeChild(img)   
+                }
+                else if(par == 2) {
+                    box2.removeChild(img)
+                }
+                else if(par == 3) {
+                    box3.removeChild(img)
+                }
+            }
+        })
+
+    </script>
+
+</body>
+</html>
