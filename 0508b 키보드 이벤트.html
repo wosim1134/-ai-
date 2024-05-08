@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js키보드 이벤트</title>
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+    <h1>키보드 이벤트</h1>
+
+    <h2>누르는 것</h2>
+
+    <h4>keydown : 누르기 시작하는 지점</h4>
+    <h4>keypress : 눌러서 데이터가 입력되는 시점</h4>
+
+    <br>
+
+    <h2>때는 것</h2>
+
+    <h4>keyup : 버튼을 때는 시점</h4>
+
+
+
+    <script>
+
+        document.addEventListener('keydown', function (a) {
+            console.log(a)
+            console.log(a.key)
+        })
+
+        document.addEventListener('click', function (a) {
+            console.log(a)
+            console.log('마우스 이벤트')
+            z = a.x
+            c = a.y
+            console.log(z, c)
+        })
+
+    </script>
+
+</body>
+</html>
