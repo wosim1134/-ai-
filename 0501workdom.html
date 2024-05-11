@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom</title>
+
+    <style>
+        span {font-size: 40px;}
+    </style>
+
+
+
+
+
+</head>
+<body>
+
+    <h1>BMI 테스트</h1>
+
+    키<label><input type="number" id="i1"></label><br><br>
+    체중<label><input type="number" id="i2"></label><br><br>
+    <button id="b1">계산</button><hr>
+    <h1>BMI 수치 : <span></span></h1>
+
+
+
+
+    <script>
+        let in1 = document.querySelector('#i1')
+        let in2 = document.querySelector('#i2')
+        let bu = document.querySelector('#b1')
+        let span = document.querySelector('span')
+
+
+
+
+        bu.addEventListener('click', function () {
+        in1 = in1.value
+        in2 = in2.value
+        console.log(in1)
+        console.log(in2)
+        zx = in2 / (in1 / 100 * in1 / 100)
+        console.log(zx)
+        span.innerHTML = zx
+        })
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

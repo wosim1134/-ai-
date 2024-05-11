@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자</title>
+
+<style>
+
+    .parent {width: 100%; height: 700px; background-color: aquamarine;}
+    .parent h1 { /*.parent 안에 모든h1*/
+        color: blue;
+    }
+
+
+    .parent > h1 {background-color: blueviolet;}
+
+
+    /*section의 자식이 되는 h1*/
+    section {border: 2px solid black;}
+
+    /* 가상클레스 */
+
+    h1:hover {
+        background-color: aliceblue;
+    }
+
+    h1:active {background-color: cadetblue;}
+
+    .parent > h1:nth-child(even) { /* .parent의 n번째 자식 */
+        text-decoration: underline;
+        color: yellow;
+    }
+
+    .parent > :nth-child(odd) { /* .parent의 n번째 자식 */
+        text-decoration: underline;
+        color: rgb(255, 0, 200);
+    }
+
+    .parent > h2:nth-of-type(2) { /* n번째 해당하는 특정 태그 */
+        text-shadow: 3px 3px 3px black;
+    }
+
+    input:focus {
+        border: 3px solid black;
+    }
+</style>
+
+</head>
+<body>
+
+<h1>선택자: 내가 원하는 문자를 선택하게 만들어주는 문자</h1>
+
+    <!--.parent 내부의 h1만 선택하는 방법-->
+
+<div class="parent">
+    <h1>박스 ></h1>
+    <h2>h2</h2>
+    <h2>h2</h2>
+    <h1>박스 ></h1>
+    <h2>h2</h2>
+    <h1>박스 ></h1>
+    <h1>박스 ></h1>
+    <h2>h2</h2>
+    <h1>박스 ></h1>
+    <section>
+        섹션
+        <h1>섹션 > 박스 ></h1>
+    </section>
+</div>
+
+    <input type="text" style="width: 300px; height: 300px;">
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>java</title>
+
+    <style>
+        .c1 {
+            width: 300px;
+            height: 50px;
+            font-size: 25px;
+        }
+
+        .d1 {
+            width: 300px;
+            height: 300px;
+            border: 3px solid black;
+            display: inline-block;
+            text-align: center;
+            font-size: 25px;
+            font-weight: 900;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #img {
+            width: 100px;
+            display: block;
+            margin: auto;
+        }
+
+        #d2 {
+            display: flex;
+        }
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <h1>마우스로 술래잡기</h1>
+
+    <button class="c1" id="b1">술레잡기 시작</button>
+    <button class="c1" id="b2">술레잡기 정지</button>
+    <br><br><br>
+
+    <div id="d2">
+    <div class="d1" id="v1">박스1</div>
+    <div class="d1" id="v2">박스2</div>
+    <div class="d1" id="v3">박스3</div>
+    </div>
+
+    <img src="/img-1.JPG" id="img">
+
+
+
+
+    <script>
+
+        let bu1 = document.querySelector('#b1')
+        let bu2 = document.querySelector('#b2')
+
+        let di1 = document.querySelector('#v1')
+        let di2 = document.querySelector('#v2')
+        let di3 = document.querySelector('#v3')
+
+
+
+
+        bu1.addEventListener('click', function() {
+            console.log('d')
+
+            let qw = document.createElement('img')
+        qw.classList.add('img')
+            qw.setAttribute(img)
+            di1.appendChild(img)
+        })
+
+        bu2.addEventListener('click', function() {
+            console.log('s')
+        })
+
+        di1.addEventListener('click', function () {
+            di2.appendChild(img)
+        })
+
+        di2.addEventListener('click', function () {
+            di3.appendChild(img)
+        })
+
+        di3.addEventListener('click', function () {
+            di1.appendChild(img)
+        })
+
+
+
+    </script>
+
+</body>
+</html>

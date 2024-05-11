@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키보드 이벤트 과제</title>
+
+    <style>
+        .box {width: 600px;height: 500px; border: 3px solid black;
+        text-align: center;}
+
+        img {
+            width: 500px; height: 400px; margin-top: 25px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>가고 싶은 해외여행지(a, s, d, f)</h1>
+
+    <div class="box">
+
+        <img src="/img-xxxxxx.png" alt="">
+
+        <h1 id="a1">입력 없음</h1>
+
+    </div>
+
+
+    <script>
+
+        img = document.querySelector('img')
+        zxc = document.querySelector('#a1')
+
+
+        document.addEventListener('keypress', function (e) {
+            
+            console.log(e.key)
+            
+            if (e.key == 'a') {
+                img.src = "/img-1.JPG"
+                zxc.innerHTML = '커피'
+            } else if (e.key == 's') {
+                img.src = "/img-2.png"
+                zxc.innerHTML = '감자'
+            } else if (e.key == 'd') {
+                img.src = "/img-3.jpg"
+                zxc.innerHTML = '초원'
+            } else if (e.key == 'f') {
+                img.src = "/img-4.jpg"
+                zxc.innerHTML = '김찌'
+            }
+        })
+
+    </script>
+
+</body>
+</html>
