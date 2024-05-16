@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+    * {
+        margin: 0 auto; text-align: center;
+    }
+
+    #bod {background-color: rgb(210, 210, 210);}
+
+    #d1 {
+        width: 1200px; background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+    }
+
+    #d2 {border: 2px solid rgb(146, 146, 146); border-radius: 20px;
+        padding: 5px; margin-right: 5px; margin-left: 5px;
+        display: inline-block; text-align: center;
+    }
+
+    #d2:hover {color: aquamarine; border: 2px solid aquamarine;}
+    #d2:active {color: rgb(255, 255, 255); background-color: aquamarine; border: 2px solid aquamarine;}
+
+    #d3 {width: 570px; height: 340px; background-color: rgb(210, 210, 210);
+        border-radius: 20px; display: inline-block;
+        margin-left: 8px; margin-right: 8px; margin-bottom: 8px;
+        }
+
+        #d4 {display: inline-block;}
+
+    #p1 {font-weight: 900; font-size: 18px;}
+
+    #po1::before {
+        content: "hot";
+        background-color: red; border-radius: 5px; margin-right: 5px; color: rgb(255, 255, 255);
+        font-size: 12px; padding: 3px;
+    }
+
+    #po2::before {
+        content: "new";
+        background-color: blue; border-radius: 5px; margin-right: 5px; color: rgb(255, 255, 255);
+        font-size: 12px; padding: 3px;
+    }
+
+    #po3::before {
+        content: "hot";
+        background-color: pink; border-radius: 5px; margin-right: 5px; color: rgb(255, 255, 255);
+        font-size: 12px; padding: 3px;
+    }
+
+    tr:nth-of-type(odd) {background-color: aqua;}
+    tr:nth-of-type(even) {background-color: rgb(234, 255, 0);}
+
+    img {
+        margin-right: 20px;
+        margin-left: 20px;
+
+    }
+
+</style>
+
+</head>
+<body id="bod">
+
+<br>
+    <div id="d1">
+        <br>
+        <img src="/img-oooooo.png" alt="" width="200px" height="50px">
+        <p id="p1">width 1200px / 아래 메뉴에 가상클래스 적용하기</p>
+        <div>
+            <div id="d2">메뉴</div>
+            <div id="d2">공지사항</div>
+            <div id="d2">갤러리</div>
+            <div id="d2">웹디자인기능사</div>
+            <div id="d2">접수 6월 8일</div>
+        </div>
+        <br><br>
+    </div>
+<br>
+    <div id="d1">
+
+        <p id="p1">section 영역 width:1200px height:400px</p>
+
+        <div id="d3">
+            <br>
+            <p id="p1" style="text-align: left; margin-left: 20px;">width:570px height:340px</p>
+            <h2 style="text-align: left; margin-left: 20px;">세겨 둘 메세지</h2>
+
+            <ul>
+                <li id="po1" style="text-align: left; margin-top: 10px;" >지금 아니면 못 할 것을 하며 살아라.</li>
+                <li id="po1" style="text-align: left; margin-top: 10px;">사람은 저마다 갈 길이 다르다. 자기 길을 가라.</li>
+                <li id="po2" style="text-align: left; margin-top: 10px;">남이 돕는다고 따라가면 자기 길 못 가고 얻을 것 못 얻는다.</li>
+                <li id="po1" style="text-align: left; margin-top: 10px;">자랑할 것이 있게 행동해라</li>
+                <li id="po3" style="text-align: left; margin-top: 10px;">모든 삶의 이치는 동일하다. 1등 하려면 힘들다.</li>
+                <li id="po3" style="text-align: left; margin-top: 10px;">제대로 못 했어도 포기하지 말고 교정하면 되는 것도 있다.</li>
+            </ul>
+
+        </div>
+
+        <div id="d3">
+            <br>
+            <p id="p1" style="text-align: left; margin-left: 20px;">width:570px height:340px</p>
+            <table style="border-collapse: collapse; width: 500px; height: 155px; text-align: left; margin-left: 20px;" border="1px" >
+                <tr>
+                    <td>ddd</td>
+                    <td>dddd</td>
+                </tr>
+                <tr>
+                    <td>dd</td>
+                    <td>dd</td>
+                </tr>
+                <tr>
+                    <td>dd</td>
+                    <td>dd</td>
+                </tr>
+                <tr>
+                    <td>dd</td>
+                    <td>dd</td>
+                </tr>
+                <tr>
+                    <td>dd</td>
+                    <td>dd</td>
+                </tr>
+            </table>
+            <br><br><br>
+        </div>
+    </div>
+<br>
+    <div id="d1">
+
+        <p id="p1">section 영역 width:1200px height:400px</p>
+        <p id="p1">div로 박스 3개 구현, width:350px</p>
+
+
+        <div id="d4">
+        <img src="/img-1.JPG" alt="" width="350px" height="170px"><br><p style="text-align: left; margin-left: 20px;">ㅇㄴㅁ</p>
+        </div>
+
+        <div id="d4">
+        <img src="/img-2.png" alt="" width="350px" height="170px"><br><p style="text-align: left; margin-left: 20px;">ㅎㄹㅇ</p>
+        </div>
+
+        <div id="d4">
+        <img src="/img-3.jpg" alt="" width="350px" height="170px"><br><p style="text-align: left; margin-left: 20px;">ㅎㅎㅎㄹㅇ</p>
+        </div>
+
+<br><br><br><br><br>
+    </div>
+
+<br>
+</body>
+</html>

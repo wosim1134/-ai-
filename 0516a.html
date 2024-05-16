@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    p::before {
+        content: "best";
+        background-color: rgb(255, 98, 0); color: rgb(255, 255, 255); border: 2px solid black;
+        padding: 3px; margin-right: 5px;
+        border-radius: 5px;
+    }
+
+    p::after {
+        content: "sold out";
+        background-color: blue; color: rgb(255, 255, 255); border: 2px solid black;
+        padding: 3px; margin-left: 5px;
+        border-radius: 5px;
+    }
+
+    p::selection {
+        background-color: aquamarine;
+    }
+
+    p::first-letter { /*첫 번째 글자*/
+        color: chartreuse;
+    }
+
+    p::first-line {
+        text-decoration: underline;
+    }
+
+</style>
+
+
+
+
+
+
+</head>
+<body>
+
+    <h1>가상요소</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, unde error? Similique
+        porro autem temporibus nihil, quis aut perspiciatis voluptatibus necessitatibus animi 
+        repellat numquam eum repudiandae voluptates quae impedit voluptatem atque totam ipsa 
+        iure deserunt magnam voluptate consequatur. Ex maiores officiis reiciendis distinctio 
+        voluptatum sunt et beatae quis maxime incidunt, minima tempora. Ab quas a in, impedit 
+        labore facilis veniam dignissimos fuga mollitia tempore nemo deserunt delectus. Sint 
+        animi molestias ex quis ipsum sequi possimus nesciunt placeat suscipit maxime. Facilis 
+        facere molestias, obcaecati repellendus tempore inventore totam quo cumque nam unde ipsa
+        dicta sint quia corporis similique veritatis debitis deleniti!</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
