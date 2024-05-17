@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo list</title>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <style>
 
         * {margin: 0; padding: 0; box-sizing: border-box;}
 
         header {
-            height: 80px;
-            display: flex; align-items: center; justify-content: space-between;
+            height: 80px; display: flex; align-items: center; justify-content: space-between;
             background: linear-gradient(to right, #ffd194, #70e1f5);
         }
 
-        section {}
 
 
         #hh1 { line-height: 40px; padding: 20px; }
@@ -23,18 +23,15 @@
         label { padding: 20px; color: white; }
         input { padding: 7px; border: none; border-radius: 5px; }
 
-
-        .todo-list {display: flex; border: 1px solid black; }
+        .todo-list {display: flex; border: 1px solid rgb(104, 104, 104); }
 
         #like { height: 80px; flex: 1; padding-top: 30px; padding-bottom: 30px; line-height: 20px;
-            margin-left: 10px;}
+            margin-left: 10px; color: pink;}
         #content { height: 80px; flex: 5; padding-top: 30px; padding-bottom: 30px; line-height: 20px;
             margin-left: 10px;}
         #manage { height: 80px; flex: 1; padding-top: 30px; padding-bottom: 30px; line-height: 20px;
-            margin-left: 10px;}
-
-
-
+            margin-left: 10px; display: flex; justify-content: space-evenly;}
+        .check {color: lightgreen;} .clear {color: red;}
 
     </style>
 
@@ -46,21 +43,26 @@
         <label for="">입력 <input type="text"></label>
     </header>
 
-
-
     <section>
 
         <div class="todo-list">
-            <p id="like">좋아요</p>
+            <p id="like">
+                <i class="large material-icons">favorite_border</i>
+                <i class="large material-icons">favorite</i>
+            </p>
             <p id="content">내용</p>
-            <div id="manage">v, x 자리</div>
+            <div id="manage">
+                <i class="large material-icons check">check</i>
+                <i class="large material-icons clear">clear</i>
+            </div>
         </div>
 
     </section>
 
+    <script>
 
 
-
+    </script>
 
 </body>
 </html>
