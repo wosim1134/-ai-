@@ -15,17 +15,26 @@
             background: linear-gradient(to right, #ffd194, #70e1f5);
         }
 
-        section {display: flex;}
+        section {}
 
 
-        #hh1 {line-height: 40px; padding: 20px;}
+        #hh1 { line-height: 40px; padding: 20px; }
+
+        label { padding: 20px; color: white; }
+        input { padding: 7px; border: none; border-radius: 5px; }
 
 
-        .todo-list {display: flex;}
+        .todo-list {display: flex; border: 1px solid black; }
+
+        #like { height: 80px; flex: 1; padding-top: 30px; padding-bottom: 30px; line-height: 20px;
+            margin-left: 10px;}
+        #content { height: 80px; flex: 5; padding-top: 30px; padding-bottom: 30px; line-height: 20px;
+            margin-left: 10px;}
+        #manage { height: 80px; flex: 1; padding-top: 30px; padding-bottom: 30px; line-height: 20px;
+            margin-left: 10px;}
 
 
-        label {padding: 20px;}
-        input {border: none; border-radius: 5px;}
+
 
     </style>
 
@@ -34,15 +43,17 @@
 
     <header>
         <h1 id="hh1">Todo</h1>
-        <label for="">입력<input type="text"></label>
+        <label for="">입력 <input type="text"></label>
     </header>
+
+
 
     <section>
 
         <div class="todo-list">
-            <p id="like">dd</p>
-            <p id="content">dd</p>
-            <div id="manage"></div>
+            <p id="like">좋아요</p>
+            <p id="content">내용</p>
+            <div id="manage">v, x 자리</div>
         </div>
 
     </section>
