@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+
+<style>
+
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+
+    h1 {color: rgb(70, 70, 255);}
+
+    header {display: flex; background-color: rgb(255, 255, 255); height: 100px; justify-content: space-between;}
+
+    .headerbox {display: flex; justify-content: space-between; align-items: center; padding: 20px;}
+
+    .dd0 { padding: 20px;}
+
+    .dd0:hover {background-color: #c7c7c7; padding: 20px; border-radius: 20px;
+    cursor: pointer;}
+
+    .dd0:active {background-color: #a5a5a5; cursor: pointer;}
+
+    .headerp {color: blue; font-size: 20px; font-weight: 900;}
+
+    .back {height: 15px; background: linear-gradient(#c1c1c1, #e8e8e8)}
+
+    .d1 {background-color: #e8e8e8; padding: 10px; margin-left: 30px; margin-right: 30px;
+        padding: 15px; border-radius: 10px;}
+
+    .d1 > p {font-size: 19px;}
+
+    .d1:hover {background-color: #c7c7c7; cursor: pointer;}
+
+    .d1:active {background-color: #a5a5a5; cursor: pointer;}
+
+    .d2 {width: 80%; height: 40%; padding: 20px;
+        background-color: rgb(255, 255, 255); margin-left: auto; margin-right: auto;
+        box-shadow: 10px 10px 10px rgb(165, 165, 165);}
+
+    .p12 {font-size: 25px; font-weight: 900;}
+
+    .im {width: 100%; height: 85%;}
+
+    .im1 {width: 100%; height: 30%;}
+
+
+</style>
+
+
+
+</head>
+<body style="background-color:#e8e8e8">
+
+    <div>
+
+        <header>
+
+            <div class="headerbox" style="flex: 1;">
+                <h1>로고</h1>
+            </div>
+
+            <div class="headerbox" style="flex: 2;">
+                <div class="dd0"><p class="headerp">게시판</p></div>
+                <div class="dd0"><p class="headerp">친구들</p></div>
+                <div class="dd0"><p class="headerp">피드</p></div>
+                <div class="dd0"><p class="headerp">즐겨찾기</p></div>
+                <div><p class="headerp"></p></div>
+                <div><p class="headerp"></p></div>
+                <div><p class="headerp"></p></div>
+                <div><p class="headerp"></p></div>
+            </div>
+
+            <div class="headerbox" style="flex: 1;">
+                <div><p class="headerp"></p></div>
+                <div><p class="headerp"></p></div>
+                <div class="dd0"><p class="headerp">로그인</p></div>
+                <div class="dd0"><p class="headerp">회원가입</p></div>
+            </div>
+
+        </header>
+
+        <div class="back"></div>
+
+        <div style="display: flex;">
+
+            <div style="height: 600px; flex: 1;">
+                <br><br>
+                <div class="d1"><p>친구 찾기</p></div>
+                <div class="d1"><p>그룹</p></div>
+                <div class="d1"><p>저장됨</p></div>
+                <div class="d1"><p>페이지</p></div>
+                <div class="d1"><p>이벤트</p></div>
+                <div class="d1"><p>최신</p></div>
+                <div class="d1"><p>즐겨찾기</p></div>
+            </div>
+
+            <div style=" flex: 3;">
+                <br><br>
+                <div class="d2">
+                    <p class="p12">오늘의 뉴스</p>
+                    <p>도파민 중독에 대해</p>
+                    <img class="im" src="/img-1.JPG" alt="">
+                </div><br><br>
+
+                <div class="d2">
+                    <p class="p12">오늘의 뉴스</p>
+                    <p>어떤 일을 하려면 어려움이 있다. 그래도 해야 된다.</p>
+                    <img class="im" src="/img-2.png" alt="">
+                </div>
+            </div>
+
+            <div style= "height: 10%; flex: 1;">
+                <br><br>
+                <div style="padding: 5px;"><p class="p12">가이드</p></div>
+                <div style="padding: 5px;"><p>상단 헤더와 중앙 콘텐츠에 그림자</p></div>
+                <div style="padding: 5px;"><p>상단과 좌측 메뉴는 마우스가 변하며, 클릭 가능</p></div>
+                <hr>
+                <img class="im1" src="/img-3.jpg" alt="">
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>
