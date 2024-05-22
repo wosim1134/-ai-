@@ -1,0 +1,27 @@
+* {
+    margin: 0; padding: 0; 
+    box-sizing: border-box;
+}
+
+header {
+    color: #FFF;
+    display: flex;
+    align-items: center; justify-content: space-between;
+    background: linear-gradient(to right, #36d1dc, #5b86e5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 10px;
+}
+
+input { border: none; border-radius: 5px; padding: 5px;}
+
+.todo-list {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.like { flex: 1; color: rgb(235, 102, 140);}
+.content { flex: 8;}
+.manage {flex: 1;}
+.check {color: rgb(79, 209, 166);}
+.clear {color: rgb(235, 102, 140);}
