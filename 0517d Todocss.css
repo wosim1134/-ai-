@@ -21,7 +21,9 @@ input { border: none; border-radius: 5px; padding: 5px;}
 }
 
 .like { flex: 1; color: rgb(235, 102, 140);}
+.like i {cursor: pointer;}
 .content { flex: 8;}
 .manage {flex: 1;}
+.manage i {cursor: pointer;}
 .check {color: rgb(79, 209, 166);}
 .clear {color: rgb(235, 102, 140);}

@@ -13,21 +13,8 @@
             <h1>Todo</h1>
             <label>할일 입력 <input type="text"></label>
         </header>
-
-        <section>
-            <div class="todo-list">
-                <p class="like"><i class="material-icons">favorite_border</i></p>
-                <p class="content">내용</p>
-                <div class="manage">
-                    <i class="material-icons check">check</i>
-                    <i class="material-icons clear">clear</i>
-                </div>
-            </div>
-        </section>
+        <section></section>
     </div>
-
-
-
 
     <script>
         //
@@ -37,12 +24,11 @@
         // 입력박스와 키보드 구분
         입력박스.addEventListener("keydown", function (event) {
             //enter 구분
-            if(event.code == "Enter" && 입력박스.value != '') { // enter 눌렀고, 입력박스가 공백일 때
+            if(event.key == "Enter" && 입력박스.value != '') { // enter 눌렀고, 입력박스가 공백일 때
                 console.log('엔터 누름')
 
                 //input에 입력된 값 가져오기
                 console.log(입력박스.value)
-
 
                 //todo리스트에 들어갈 할 일 만들기
                 let div박스 = document.createElement("div")
@@ -50,7 +36,22 @@
                 //추가
                 let p태그1 = document.createElement("p")
                 p태그1.classList.add("like")
-                p태그1.innerHTML = `<i class="material-icons">favorite_border</i>`
+
+                let i태그 = document.createElement("i")
+                i태그.classList.add("material-icons")
+                i태그.textContent = 'favorite_border'
+                p태그1.appendChild(i태그)
+
+                //하트이벤트 걸기
+                i태그.addEventListener('click', function () {
+                    if(i태그.textContent == "favorite") {
+                        i태그.textContent = "favorite_border"
+                        }
+                        else {
+                        i태그.textContent = "favorite"
+                    }
+                })
+
                 div박스.appendChild(p태그1)
 
                 let p태그2 = document.createElement("p")
@@ -67,32 +68,39 @@
                 i태그1.classList.add("check")
                 i태그1.textContent = "check"
 
+                //v 태그 클릭하면
+
+                i태그1.addEventListener('click', function () {
+                    // 글씨색 변하고 취소 선 긋기
+                    p태그2.style.color = "#888"
+                    p태그2.style.textDecoration = "line-through"
+                    i태그1.style.visibility = 'hidden'
+                })
+
                 //X생성
                 let i태그2 = document.createElement('i')
                 i태그2.classList.add("material-icons")
                 i태그2.classList.add("clear")
                 i태그2.textContent = "clear"
 
+                //x 클릭
+
+                i태그2.addEventListener('click', function () {
+                    섹션.removeChild(div박스)
+                })
+
                 관리div.appendChild(i태그1) // V를 div에 추가
                 관리div.appendChild(i태그2) // X를 div에 추가
 
                 div박스.appendChild(관리div) // VX div를 부모에 추가
 
-
-
                 // 화면에 넣기
                 섹션.appendChild(div박스)
                 console.log(div박스)
 
-
                 입력박스.value = ""
-
-
             }
         })
-
-
-
 
     </script>
 
