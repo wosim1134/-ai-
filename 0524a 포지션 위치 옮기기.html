@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    .box { width: 200px; height: 200px; background-color: rgb(159, 255, 255); border: 2px solid black;}
+    .relative { position: relative; left: 100px; top: 150px; z-index: 2;}
+    .parent {width: 400px; height: 400px; background-color: antiquewhite; border: 2px solid black;
+    position: relative; z-index: 1;}
+    .absolute { position: absolute; left: 100px; top: 100px; z-index: 0;}
+
+    .fixed { position: fixed; right: 50px; top: 50px;}
+
+
+</style>
+
+</head>
+<body>
+
+    <h1>position: 위치를 옮기는 css</h1>
+
+    <ul>
+
+        <li>relative : (상대적) 현재 지금 위치를 기준으로 옮김</li>
+        <li>absolute : (상대적) 현재 지금 위치를 기준으로 옮김</li>
+        <li>fixed : 화면에서 fix (고정)</li>
+        <li>sticky : 특정 지점부터 fixed 적용</li>
+    </ul>
+
+
+
+    <div class="box relative">relative 박스</div>
+
+
+
+    <div class="parent">
+
+        <div class="box absolute">absolute 박스</div>
+
+    </div>
+
+    <div class="box fixed">fixed 박스</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div style="height: 3000px;"></div>
+
+</body>
+</html>
