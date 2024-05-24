@@ -4,8 +4,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+
+        #all { width: 120%;}
+
+        .ins {width: 250px; height:1500px; background-color: rgb(255, 255, 255) ; border: 1px solid rgb(179, 179, 179);
+            position: fixed; z-index: 2;}
+
+        #im1 { width: 150px; cursor: pointer;}
+
+        .im2 { width: 100%; }
+
+        .im3 { width: 50px; margin-right: 10px;}
+
+        .tap { width: 200px; height: 40px; background-color: rgb(255, 255, 255); border-radius: 10px;
+            margin-left: auto; margin-right: auto; margin-top: 10px; padding: 8px; display: flex;}
+
+            .tap:hover {background-color: rgb(199, 199, 199);}
+
+        i {margin-right: 10px;}
+
+        .up1 {width: 100%; height: 50px; background-color: rgb(255, 255, 255); border: 1px solid rgb(179, 179, 179);
+        display: flex; justify-content: space-evenly; align-items: center; position: fixed; z-index: 1;}
+
+        .upc {color: rgb(183, 183, 183);}
+
+        .main { width: auto; height: auto; background-color: rgb(255, 255, 255);
+        display: flex;}
+
+        .d2 {flex: 2;}
+
+        .d3 {flex: 3;}
+
+        .d4 {flex: 1;}
+
+        .d5 {flex: 3;}
+
+        .f1 {display: flex; margin-top: 20px;}
+
+        .asd {position: relative; top: 700px;}
+    </style>
+
 </head>
 <body>
-    
+    <div id="all">
+        <div class="ins">
+            <img id="im1" src="https://play-lh.googleusercontent.com/1-hPxafOxdYpYZEOKzNIkSP43HXCNftVJVttoo4ucl7rsMASXW3Xr6GlXURCubE1tA=w3840-h2160-rw" alt="">
+            <br><br><br>
+            <div class="tap">
+                <i class="material-icons">add</i>
+                <h4>홈</h4>
+            </div>
+
+            <div class="tap">
+                <i class="material-icons">create</i>
+                <h4>제작</h4>
+            </div>
+
+            <div class="tap">
+                <i class="material-icons">collections</i>
+                <h4>사진</h4>
+            </div>
+
+            <div class="tap">
+                <i class="material-icons">desktop_mac</i>
+                <h4>보류</h4>
+            </div>
+
+            <div class="tap">
+                <i class="material-icons">email</i>
+                <h4>메일</h4>
+            </div>
+
+            <div class="tap">
+                <i class="material-icons">favorite</i>
+                <h4>좋아요</h4>
+            </div>
+
+            <div class="tap">
+                <i class="material-icons">dehaze</i>
+                <h4>설정</h4>
+            </div>
+
+            <div class="tap asd">
+                <i class="material-icons">format_align_justify</i>
+                <h4>설정</h4>
+            </div>
+
+        </div>
+
+        <div class="up1">
+            <div></div>
+
+            <div style="display: flex;">
+                <i class="material-icons upc">edit</i>
+                <label for=""><input style="width: 300px; padding: 5px; border-radius: 10px;" 
+                    placeholder="검색" type="text"></label>
+            </div>
+
+        </div>
+<br><br><br><br>
+
+        <div class="main">
+
+
+            <div class="d2"></div>
+
+            <div class="d3">
+                <h2>달디달고 달디달고 달디단 커피</h2>
+                <img class="im2" src="/img-1.JPG" alt="">
+                <br>
+                <i class="material-icons">favorite</i>
+                <i class="material-icons">favorite</i>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aspernatur reiciendis dicta perferendis, autem placeat iure distinctio corporis ipsam laborum sequi qui itaque dignissimos nobis dolorum laboriosam. Excepturi, harum sed!</p>
+            <br><hr><br>
+            <h2>커피</h2>
+                <img class="im2" src="/img-1.JPG" alt="">
+                <br>
+                <i class="material-icons">favorite</i>
+                <i class="material-icons">favorite</i>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aspernatur reiciendis dicta perferendis, autem placeat iure distinctio corporis ipsam laborum sequi qui itaque dignissimos nobis dolorum laboriosam. Excepturi, harum sed!</p>
+
+            </div>
+
+
+            <div class="d4"></div>
+
+            <div class="d5">
+
+                <h2>추천유저</h2>
+
+                <div class="f1">
+                    <img class="im3" src="/img-1.JPG" alt="">
+                    <div>
+                        <h4>Lorem ipsum dolor sit.</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                    </div>
+                </div>
+
+                <div class="f1">
+                    <img class="im3" src="/img-1.JPG" alt="">
+                    <div>
+                        <h4>Lorem ipsum dolor sit.</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                    </div>
+                </div>
+
+                <div class="f1">
+                    <img class="im3" src="/img-1.JPG" alt="">
+                    <div>
+                        <h4>Lorem ipsum dolor sit.</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>
