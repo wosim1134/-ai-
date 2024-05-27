@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 a = int(input())
 b = []
 c = 0
@@ -20,3 +21,12 @@ for i in range(len(b)):
                 if b[i][j] != b[i][j+1]:
                     
                     c += 1
+=======
+a = {
+    'a', 12,
+    'b', 23
+}
+
+z = a.get('a', 'no')
+print(z)
+>>>>>>> Stashed changes
