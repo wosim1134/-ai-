@@ -1,6 +1,3 @@
-a = {
-    'q' : 12,
-    's' : 23
-}
+a, b = input().split()
 
-print(a.get(12))
+print(ord('A'))
