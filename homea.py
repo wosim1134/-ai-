@@ -1,11 +1,8 @@
-a, b = input().split()
-b = int(b)
+a, b = map(int, input().split())
 c = 0
+d = 0
 
-for i in range(1, len(a)+1):
-    if '0' <= a[-i] <= '9':
-        c += (ord(a[-i]) - ord('0')) * b ** (i - 1)
-    else:
-        c += (ord(a[-i]) - 55) * b ** (i - 1)
-
-print(c)
+while True:
+    c = a % b
+    a = a // b
+    if 0 <= c <= 9:

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+
+<style>
+
+
+.container { display: grid; gap: 20px;
+        /*grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
+        grid-template-columns: 300px 300px 300px;
+        grid-template-rows: 200px 100px 200px 200px 200px 200px 200px;
+        /* align-items: center; justify-items: center ; */
+            }
+    .item { background-color: rgb(171, 255, 255); border: 1px solid rgb(141, 141, 141);
+        border-radius: 20px;
+        width: 100px; height: 100px;
+    }
+
+
+
+
+
+
+
+
+
+
+</style>
+
+</head>
+<body>
+
+    <h3>부모: 컨테이너</h3>
+    <h3>자식: 아이템</h3>
+    <h3>그리드 한 칸: 셀</h3>
+
+    <div class="container">
+        <div class="item" style="justify-self:center;"></div>
+        <div class="item" style="align-self: center;"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item" style="grid-column: 1/4;"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+
+
+
+
+
+
+</body>
+</html>
