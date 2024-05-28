@@ -1,15 +1,6 @@
-a, b = map(int, input().split())
-c = 0
-d = []
+a = int(input())
+w = 2
 
-while True:
-    c = a % b
-    a = a // b
-    if 0 <= c <= 9:
-        d.insert(0, c)
-    else:
-        d.insert(0, chr(c+55))
-    if a == 0:
-        for i in range(len(d)):
-            print(d[i], end = '')
-        break
+for i in range(a):
+    w = 2*w-1
+print(w*w)
