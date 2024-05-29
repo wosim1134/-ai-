@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        .box { width: 200px; height: 200px; border: 10px solid rgb(233, 177, 255); }
+
+    </style>
+
+
+</head>
+<body>
+
+    <div class="box"></div>
+    <br><br>
+    <input type="text">
+
+
+
+
+
+
+
+
+<script>
+    
+    let 박스 = document.querySelector(".box")
+
+    // 박스.addEventListener("click", function () {}) // 일반 함수 사용
+    박스.addEventListener("click", () => { // 화살표 함수 사용 (기능 같음)
+        박스.style.backgroundColor = 'red'
+    })
+
+    const 입력박스 = document.querySelector("input")   // 상수: 변하지 않는 수
+
+    // input 이벤트
+    입력박스.addEventListener("input", (event) => {
+        console.log(event)
+    })
+
+
+</script>
+
+</body>
+</html>
