@@ -6,15 +6,21 @@
     <title>change 이벤트</title>
 
     <style>
-        
+
     </style>
 
 </head>
 <body>
 
+    <h3>change 이벤트 사용해보기</h3>
     <input type="text">
-
-
+<br>
+<br>
+    <select name="" id="">
+        <option value="1">123</option>
+        <option value="2">456</option>
+        <option value="3">789</option>
+    </select>
 
 
 
@@ -22,7 +28,28 @@
 
 
 <script>
-    const
+    const 입력 = document.querySelector("input")
+    입력.addEventListener("change", (e) => {
+        console.log("change 발생")
+        console.log(e)
+    })
+
+    const 셀렉 = document.querySelector("select")
+    셀렉.addEventListener("change", (e) => {
+        console.log("select에서 change 발생")
+        console.log(e)
+    })
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 
