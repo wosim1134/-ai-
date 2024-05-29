@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타자연습</title>
+
+
+
+
+</head>
+<body>
+
+    <h1>애국가 타자연습</h1>
+    <p>타이핑을 하여 내용이 일치하면 ok 표시</p>
+    <p>ok 표시를 위한 태그는 span 사용 권장</p>
+    <hr>
+    <h2>input 이벤트와 조건문을 활용</h2>
+    <h3>값을 입력하면 맞는지 점검함</h3>
+
+    동해물과 <input id="i1" type="text"><span id="s1"></span><br><br>
+    백두산이 <input id="i2" type="text"><span id="s2"></span><br>
+
+    <h2>키보드 이벤트 활용</h2>
+    <h3>Enter를 누르면 확인함</h3>
+
+    마르고 <input id="i3" type="text"><span id="s3"></span><br><br>
+    닳도록 <input id="i4" type="text"><span id="s4"></span>
+
+
+<script>
+    let 입력1 = document.querySelector("#i1")
+    let 입력2 = document.querySelector("#i2")
+    let 입력3 = document.querySelector("#i3")
+    let 입력4 = document.querySelector("#i4")
+    let 결과1 = document.querySelector("#s1")
+    let 결과2 = document.querySelector("#s2")
+    let 결과3 = document.querySelector("#s3")
+    let 결과4 = document.querySelector("#s4")
+
+    입력1.addEventListener("input", (event) => {
+        if (event.target.value == "동해물과") {
+            console.log("ok")
+            결과1.innerHTML = " ok"
+        } else {
+            console.log("x")
+            결과1.innerHTML = " x"
+        }
+    })
+
+    입력2.addEventListener("input", (event) => {
+        if (event.target.value == "백두산이") {
+            console.log("ok")
+            결과2.innerHTML = " ok"
+        } else {
+            console.log("x")
+            결과2.innerHTML = " x"
+        }
+    })
+
+    입력3.addEventListener("keypress", (event) => {
+        console.log(event)
+        if (event.key == "Enter") {
+            if (event.target.value == "마르고") {
+                console.log("ok")
+                결과3.innerHTML = " ok"
+            } else {
+                console.log("x")
+                결과3.innerHTML = " x"
+            }
+        }
+    })
+
+    입력4.addEventListener("keypress", (event) => {
+        console.log(event)
+        if (event.key == "Enter") {
+            if (event.target.value == "닳도록") {
+                console.log("ok")
+                결과4.innerHTML = " ok"
+            } else {
+                console.log("x")
+                결과4.innerHTML = " x"
+            }
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
