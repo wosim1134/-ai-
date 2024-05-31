@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>음식 가격 work</title>
+</head>
+<body>
+
+    <h1>주문서</h1>
+    <h3>먹고 싶은 메뉴를 선택합니다</h3>
+    <label>
+        <label><input type="checkbox" value="16000" name="가격">치킨 16,000 \</label>
+<br><br>
+        <label><input type="checkbox" value="20000" name="가격">초밥 20,000 \</label>
+<br><br>
+        <label><input type="checkbox" value="5000" name="가격">순대 5,000 \</label>
+    </label>
+    <hr>
+    <h2>가격 : <span>0</span></h2>
+
+<script>
+    const 선택 = document.querySelector('label')
+    let 출력 = document.querySelector('span')
+    z = 0
+
+    선택.addEventListener('change', function (e) {
+        if (e.target.checked) {
+            z += Number(e.target.value)
+            console.log(z)
+            출력.innerHTML = z
+        } else {
+            z -= Number(e.target.value)
+            console.log(z)
+            출력.innerHTML = z
+        }
+    })
+
+</script>
+</body>
+</html>
