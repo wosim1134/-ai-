@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단위 변환 work</title>
+
+    <style>
+
+        #box { width: 200px; height: 20px; border: 1px solid black; }
+        label { margin-left: 3px; }
+    </style>
+
+</head>
+<body>
+
+    <h1>단위 변환</h1>
+    <p>cm을 선택한 단위로 변환합니다</p>
+
+    <input type="text"><span> cm</span>
+
+    <p>↓↓↓↓↓ 변환 ↓↓↓↓↓</p><br>
+
+    <div style="display: flex;">
+        <div id="box"></div><span></span>
+        <label for="">
+            <select>
+                <option value="1">inch</option>
+                <option value="2">mm</option>
+                <option value="3">m</option>
+            </select>
+        </label>
+    </div>
+
+<script>
+
+    let 선택 = document.querySelector("select")
+    let 입력 = document.querySelector("input")
+    let 출력 = document.querySelector("#box")
+
+    선택.addEventListener('change', (e) => {
+        console.log(e)
+            if (선택.value == '1') {
+                console.log(입력)
+                출력.innerHTML = 입력.value * 2.54
+            }
+            if (선택.value == '2') {
+                console.log(입력)
+                출력.innerHTML = 입력.value * 0.1
+            }
+            if (선택.value == '3') {
+                console.log(입력)
+                출력.innerHTML = 입력.value * 100
+            }
+    })
+
+</script>
+
+</body>
+</html>
