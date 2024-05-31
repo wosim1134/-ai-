@@ -3,9 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>이베트 발생 객체</title>
+
+<style>
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    div {height: 150px; background-color: aqua;}
+
+
+
+
+
+</style>
+
 </head>
 <body>
-    
+
+    <div>
+        <h1>이벤트 발생한 객체에 대해</h1>
+    </div>
+
+
+
+
+
+<script>
+    const div태그 = document.querySelector("div")
+    const h1태그 = document.querySelector("div")
+
+    h1태그.addEventListener("click", (event) => {
+        console.log("h1 클릭")
+        console.log("event.target", event.target)
+        console.log("event.currentTarget", event.currentTarget)
+        let 이벤트실행주체 = "h1태그"
+        더하기(5, 10)
+    })
+
+
+    function 더하기(x, y) {
+        console.log("x+y = ", x+y)
+        console.log("this 실행 : ", this.이벤트실행주체)
+    }
+
+
+
+
+</script>
+
 </body>
 </html>
