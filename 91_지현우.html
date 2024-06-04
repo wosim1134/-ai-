@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9_지현우</title>
+
+    <style>
+
+        #p1 {
+            font-size: 35px;
+            color: lightgreen;
+            font-family: "Nanum Pen Script", cursive;
+        }
+
+        #p2 {
+            color: gray;
+        }
+
+        #p3 {
+            font-weight: 700;
+        }
+
+        #d1 {
+            width: 700px;
+            border-radius: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #d3 {
+            width: 170px;
+        }
+
+        #d4 {
+            text-align: center;
+        }
+
+        #la {
+            width: 200px;
+        }
+
+        .bu {background-color: lightgreen;
+            width: 200px;
+            height: 50px;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        .bn {
+            border: none;
+            
+        }
+
+        #az {
+            border: none;
+        }
+
+    </style>
+
+</head>
+<body>
+        <form>
+
+            <div>
+
+            <fieldset id="d1">
+
+                <p id="p1">| 자신의 프로필을 설정해주세요</p>
+
+                <p id="p2">각각의 학목에 정보를 입력해주세요</p>
+                <hr>
+
+                <p id="p3">성명</p>
+                <label><input placeholder="성명 입력" type="text" class="bn" required></label>
+                <div id="d3"><hr></div>
+
+                <p id="p3">주소</p>
+                <label><input placeholder="주소 입력" type="text" class="bn" required></label>
+                <div id="d3"><hr></div>
+
+
+
+                <p id="p3">연락처</p>
+                <label><input placeholder="연락처 입력" type="tel" class="bn" required></label>
+                <div id="d3"><hr></div>
+
+
+                <p id="p3">생년월일</p>
+
+                <label>
+                    <select name="" id="az">
+                        <option value="연도">연도</option>
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2002">2002</option>
+                        <option value="2003">2003</option>
+                        <option value="2004">2004</option>
+                        <option value="2005">2005</option>
+                        <option value="2006">2006</option>
+                    </select>
+                </label>
+
+                <label>
+                    <select name="" id="az">
+                        <option value="월">월</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+
+                    </select>
+                </label>
+
+                <label><input type="number" min="1" max="31" class="bn">일</label>
+                <div id="d3"><hr></div>
+
+
+                <p id="p3">성별</p>
+                <label><input type="radio" name="qwe" value="남">남</label>
+                <label><input type="radio" name="qwe" value="여">여</label>
+
+
+                <p id="p3">이메일</p>
+                <label><input placeholder="이메일 입력" type="email" class="bn" required></label>
+                <div id="d3"><hr></div>
+                <br>
+
+            </fieldset>
+            <br>
+            <fieldset id="d1">
+
+                <p id="p1">| 자신을 소개해 주세요</p>
+
+                <p id="p2">아레의 물음에 답하세요</p>
+                <hr>
+
+                <p id="p3">가장 마음에 드는 문구를 고르시오</p>
+
+                <label><input type="radio" name="ra" value="1">어렵게 생각하지 말고 끝까지 하면 된다.희망을 가지고 간절하게 하면 된다.</label><br><br>
+                <label><input type="radio" name="ra" value="2">신념을 가지면 어떤 어려움에도 흔들리지 않는다.</label><br><br>
+                <label><input type="radio" name="ra" value="3">"시계처럼 살아라."-이는 시계처럼 꾸준히 가라는 것이다.시계처럼 시간도 지켜라.</label><br><br>
+                <label><input type="radio" name="ra" value="4">인생도 건너뛰기가 없고 순간 나는 비약도 없다.</label><br><br>
+
+                <p id="p3">위 문구를 선택한 이유를 쓰세요</p>
+
+                <textarea placeholder="500자 이내" name="" id="" cols="101" rows="10"></textarea>
+
+                <p id="p3">자신의 진로 분야를 선택하시오</p>
+
+                <label><input type="checkbox" name="ch" value="프론트엔드">프론트엔드</label>
+                <label><input type="checkbox" name="ch" value="보안">보안</label>
+                <label><input type="checkbox" name="ch" value="백엔드">백엔드</label>
+                <label><input type="checkbox" name="ch" value="인공지능">인공지능</label>
+                <label><input type="checkbox" name="ch" value=">해커">해커</label>
+                <label><input type="checkbox" name="ch" value="기타">기타</label>
+
+                <p id="p3">개발자가 되기 위한 공부 우선 순위</p>
+
+                <span>1.</span><label><input type="text" class="bn" required></label>
+                <span>2.</span><label><input type="text" class="bn" required></label>
+                <span>3.</span><label><input type="text" class="bn" required></label>
+                <div style="width: 550px;"><hr></div>
+
+            </fieldset>
+            <br>
+
+        <div id="d4">
+            <button type="submit" class="bu">제출</button>
+            <button type="reset" class="bu">초기화</button>
+        </div>
+
+        </div>
+
+    </form>
+
+
+</body>
+</html>
