@@ -19,7 +19,9 @@
 </head>
 <body>
 
-
+    <h1>체감온도 : <span class="feel">??</span>'C</h1>
+    <h1>습도 : <span class="humidity">??</span>%</h1>
+    <h1>기온 : <span class="temp">??</span>'C</h1>
 
 
 
@@ -33,7 +35,26 @@
         axios.get('https://api.openweathermap.org/data/2.5/weather?q=seoul&appid=47359576e0f3bfe8b6c633d12f9071cc')
             .then(function (response) {
                 // 성공 핸들링
-                console.log(response);
+                console.log(response)
+                console.log(response.data.main)
+
+
+                console.log("체감온도", (response.data.main.feels_like-273).toFixed(2))
+                let 체감온도  = (response.data.main.feels_like-273).toFixed(2)
+                let 체감온도지정 = document.querySelector(".feel")
+                체감온도지정.textContent = 체감온도
+
+
+                console.log("습도", response.data.main.humidity)
+                let 습도  = response.data.main.humidity
+                let 습도지정 = document.querySelector(".humidity")
+                습도지정.textContent = 습도
+
+                console.log("기온", response.data.main.temp-273)
+                let 기온  = (response.data.main.temp-273).toFixed(2)
+                let 기온지정 = document.querySelector(".temp")
+                기온지정.textContent = 기온
+
             })
     </script>
 
