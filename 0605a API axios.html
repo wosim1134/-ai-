@@ -7,55 +7,99 @@
 
 <style>
 
+    * { margin: 0; padding: 0; box-sizing: border-box;}
 
+    header {display: flex; justify-content: space-between; background-color: rgb(105, 255, 172); height: 100px; align-items: center;}
 
+    .main {text-align: center; }
 
+    #sel1 {height: 50%; background-color: aquamarine;}
 
+    .temp { font-size: 50px;}
 
+    .p1 {color: rgb(60, 132, 196); }
 
+    #d1 { display: flex; justify-content: center;}
+
+    .d2 {border: 1px solid black; border-radius: 100px; background-color: aquamarine;
+        width: 150px; height: 60px; 
+        margin-left: 30px; margin-right: 30px;}
+
+    #p2 { color: rgb(20, 255, 177); }
 
 </style>
 
 </head>
 <body>
 
-    <h1>체감온도 : <span class="feel">??</span>'C</h1>
-    <h1>습도 : <span class="humidity">??</span>%</h1>
-    <h1>기온 : <span class="temp">??</span>'C</h1>
+    <header>
+        <h1>날씨검색</h1>
+        <select name="" id="sel1">
+            <option value="none"></option>
+            <option value="seoul">서울</option>
+            <option value="busan">부산</option>
+            <option value="tokyo">도쿄</option>
+            <option value="osaka">오사카</option>
+            <option value="kyoto">교토</option>
+            <option value="barcelona">바르셀로나</option>
+        </select>
+    </header>
+<br><br>
 
+    <div class="main">
+        <h2 id="p2" class="city"></h2><br>
 
+        <h1><span class="temp"></span></h1><br>
 
+        <img src="" alt="">
 
-
+        <div id="d1">
+            <div class="d2"><p class="p1"><span class="feel"></span></p></div>
+            <div class="d2"><p class="p1"><span class="humidity"></span></p></div>
+        </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        // 지정된 ID를 가진 유저에 대한 요청
-        axios.get('https://api.openweathermap.org/data/2.5/weather?q=seoul&appid=47359576e0f3bfe8b6c633d12f9071cc')
+
+        let 선택한도시
+        let 셀렉 = document.querySelector("select")
+        셀렉.addEventListener("change", function (event) {
+            console.log(event.target.value)
+            선택한도시 = event.target.value
+
+            axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${선택한도시}&appid=47359576e0f3bfe8b6c633d12f9071cc`)
             .then(function (response) {
-                // 성공 핸들링
                 console.log(response)
                 console.log(response.data.main)
 
+                let 도시이름 = document.querySelector('.city')
+                도시이름.textContent = response.data.name
 
-                console.log("체감온도", (response.data.main.feels_like-273).toFixed(2))
-                let 체감온도  = (response.data.main.feels_like-273).toFixed(2)
+                console.log("체감온도", (response.data.main.feels_like-273))
+                let 체감온도  = (response.data.main.feels_like-273).toFixed(1)
                 let 체감온도지정 = document.querySelector(".feel")
-                체감온도지정.textContent = 체감온도
-
+                체감온도지정.textContent = "체감온도 : " + 체감온도 + "'C"
 
                 console.log("습도", response.data.main.humidity)
                 let 습도  = response.data.main.humidity
                 let 습도지정 = document.querySelector(".humidity")
-                습도지정.textContent = 습도
+                습도지정.textContent = "습도 : " + 습도 + "%"
 
                 console.log("기온", response.data.main.temp-273)
-                let 기온  = (response.data.main.temp-273).toFixed(2)
+                let 기온  = (response.data.main.temp-273).toFixed(1)
                 let 기온지정 = document.querySelector(".temp")
-                기온지정.textContent = 기온
+                기온지정.textContent = 기온 + "'C"
+
+                console.log("아이콘 코드", response.data.weather[0].icon)
+                let 아이콘코드 =  response.data.weather[0].icon
+                let 날씨아이콘 =  document.querySelector("img")
+                날씨아이콘.setAttribute("src", `https://openweathermap.org/img/wn/${아이콘코드}@2x.png`)
 
             })
+        })
+
     </script>
 
 </body>
