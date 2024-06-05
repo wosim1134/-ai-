@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>openweather</title>
+
+<style>
+
+
+
+
+
+
+
+
+</style>
+
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // 지정된 ID를 가진 유저에 대한 요청
+        axios.get('https://api.openweathermap.org/data/2.5/weather?q=seoul&appid=47359576e0f3bfe8b6c633d12f9071cc')
+            .then(function (response) {
+                // 성공 핸들링
+                console.log(response);
+            })
+    </script>
+
+</body>
+</html>
