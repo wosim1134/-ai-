@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>math 객체</title>
+
+<style>
+
+
+
+
+
+
+
+
+
+</style>
+
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+        // 반올림, 올림, 내림
+
+        let 숫자 = 3.14
+
+
+        console.log(숫자, "내림", Math.floor(숫자))
+        console.log(숫자, "올림", Math.ceil(숫자))
+        console.log(숫자, "반올림", Math.round(숫자))
+
+        // 랜덤 Math.random() 0 ~ 0.999999 사이의 숫자를 생성
+        console.log(Math.random())
+
+        // 0 ~ 0.9999999 -> 1 ~ 10
+        // * 10 -> 0 ~ 9.9999999
+        // + 1 -> 1 ~ 0.9999999
+        // 내림 floor -> 1 ~ 10
+
+        console.log(Math.floor(Math.random()*10 + 1))
+
+
+        // 로또
+
+        console.log(Math.floor(Math.random()*45 + 1))
+
+
+        // 절대값
+
+        console.log("절대값 -5 = ", Math.abs(-5))
+
+        // 최대 최소
+        console.log(Math.max(1, 2, 3, 45, 5))
+        console.log(Math.min(3, 3, 8, 3, 2))
+
+
+        // 제곱
+        console.log(Math.pow(2, 30))
+
+
+        // 루트
+        console.log(Math.sqrt(13))
+
+
+    </script>
+
+</body>
+</html>
