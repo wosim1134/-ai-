@@ -13,8 +13,6 @@
     .d2 {height: 40px; background-color: rgb(70, 255, 178); border: 1px solid black; text-align: center; }
     .d3 {height: 60px; background-color: rgb(154, 253, 255); border: 1px solid black; text-align: center; }
 
-
-
 </style>
 
 </head>
@@ -52,35 +50,26 @@
     </div>
 
 <script>
-
     let 숫자1 = document.querySelector('#sp1')
     let 숫자2 = document.querySelector('#sp2')
     let 숫자3 = document.querySelector('#sp3')
     let 숫자4 = document.querySelector('#sp4')
     let 숫자5 = document.querySelector('#sp5')
     let 숫자6 = document.querySelector('#sp6')
-
-    while (true) {
-        z1 = Math.floor(Math.random()*45+1)
-        z2 = Math.floor(Math.random()*45+1)
-        z3 = Math.floor(Math.random()*45+1)
-        z4 = Math.floor(Math.random()*45+1)
-        z5 = Math.floor(Math.random()*45+1)
-        z6 = Math.floor(Math.random()*45+1)
-        let z = new Set([z1, z2, z3, z4, z5, z6])
-
-        if (z.size == 6) {
-            숫자1.textContent = z1
-            숫자2.textContent = z2
-            숫자3.textContent = z3
-            숫자4.textContent = z4
-            숫자5.textContent = z5
-            숫자6.textContent = z6
-            break;
-        } 
-    }
-
+    let 로또 = [] 
+    let 숫자
+        while(로또.length < 7){
+            숫자 = Math.floor(Math.random()*45+1)
+            if(로또.indexOf(숫자) == -1) {
+                로또.push(숫자)
+            }
+        }
+        숫자1.textContent = 로또[0]
+        숫자2.textContent = 로또[1]
+        숫자3.textContent = 로또[2]
+        숫자4.textContent = 로또[3]
+        숫자5.textContent = 로또[4]
+        숫자6.textContent = 로또[5]
 </script>
-
 </body>
 </html>
