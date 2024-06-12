@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>api 복습</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=seoul&appid=47359576e0f3bfe8b6c633d12f9071cc`)
+    .then(function (response) {
+	    console.log(response)
+        document.write("기온: ", response.data.main.temp-273.15)
+        document.write("</br>체감온도: ", response.data.main.feels_like-273.15)
+        document.write("</br>풍속: ", response.data.wind.speed)
+})
+</script>
+
+    
+</body>
+</html>
