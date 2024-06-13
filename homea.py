@@ -1,11 +1,8 @@
-a = int(input())
-b = c = 1
-d = 0
-while True:
-    if a <= b:
-        print(c)
-        break
-    else:
-        c += 1
-        d += 6
-        b += d
+A, B, V = map(int, input().split())
+
+C = A - B
+
+C * V - A = M-1
+1   5   2   4-1
+
+M-1 = C * V - A
