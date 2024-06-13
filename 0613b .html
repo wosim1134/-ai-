@@ -26,10 +26,10 @@
     axios.get(`https://api.openweathermap.org/data/2.5/weather?q=seoul&appid=47359576e0f3bfe8b6c633d12f9071cc`)
     .then(function (response) {
         console.log(response)
-        document.write(`기온: ${(response.data.main.temp - 273.15).toFixed(2)}</br>`)
-        document.write(`체감온도: ${(response.data.main.feels_like - 273.15).toFixed(2)}</br>`)
-        document.write(`풍속: ${response.data.wind.speed}</br>`)
-        document.write(`습도: ${response.data.main.humidity}`)
+        console.log(`기온: ${(response.data.main.temp - 273.15).toFixed(2)}</br>`)
+        console.log(`체감온도: ${(response.data.main.feels_like - 273.15).toFixed(2)}</br>`)
+        console.log(`풍속: ${response.data.wind.speed}</br>`)
+        console.log(`습도: ${response.data.main.humidity}`)
     })
 
 </script>
