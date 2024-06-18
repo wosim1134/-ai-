@@ -1,18 +1,17 @@
-while True:
-    a = int(input())
-    if a == -1:
-        break
-    b = 0
-    c = []
-    if a > 0:
-        for i in range(1, a):
-            if a % i == 0:
-                b += i
-                c.append(i)
+import sys
+input = sys.stdin.readline
 
-        if a == b and a > 0:
-            print(f'{a} = 1', end = '')
-        for i in range(1, len(c)):
-            print(f' + {c[i]}', end = '')
+while True:
+    a = list(map(int, input().split()))
+    s = sum(a)
+    if a[0] == a[1] == a[2] == 0:
+        break
+    if (s-max(a)) > max(a):
+        if a[0] == a[1] == a[2]:
+            print('Equilateral')
+        elif a[0] == a[1] or a[1] == a[2] or a[0] == a[2]:
+            print('Isosceles')
+        else:
+            print('Scalene')
     else:
-        print(f'{a} is NOT perfect.')
+        print('Invalid')
