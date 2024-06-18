@@ -7,42 +7,62 @@
 
 <style>
 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    .divall { width: 600px; height: 400px; border-radius: 30px; display: flex;}
 
+    .divin1 { width: 300px; height: 400px; border: 1px solid black; padding: 50px; }
+    #d1-1 { background-color: aquamarine; border-top-left-radius: 30px; border-bottom-left-radius: 30px;}
+    #d1-2 { background-color: rgb(156, 252, 255); border-top-right-radius: 30px; border-bottom-right-radius: 30px;}
 
+    .divin1-1 { border: 1px solid black; border-radius: 20px; width: 200px; height: 100px; display: flex;
+        justify-content: center; align-items: center; background-color: aqua;}
 
-
-
-
-
+    .divin2 { width: 300px; height: 400px; border: 1px solid black; padding: 50px; }
+    .divin2-1 { width: 200px; height: 80px;border: 1px solid black;
+        border-radius: 20px; background-color: rgb(222, 144, 255);
+        display: flex; justify-content: center; align-items: center;}
+    .divin2-2 { width: 150px; height: 70px;border: 1px solid black; 
+        border-radius: 20px; background-color: rgb(231, 255, 179); margin: 25px;
+        display: flex; justify-content: center; align-items: center;}
 
 </style>
 
 </head>
-<body>
+<body style="background-color: rgb(180, 255, 225);">
+
+    <header style="display: flex; justify-content: center;">
+        <div class="divall">
+            <div class="divin1" id="d1-1">
+                <div class="divin1-1">
+                    <h1><span>34</span>ºC</h1>
+                </div>
+                <div class="divin1-1" style="position: absolute; top: 250px;">
+                    <h1><span>체감 온도</span>ºC</h1>
+                </div>
+            </div>
+
+            <div class="divin2" id="d1-2">
+                <div class="divin2-1">
+                    <h1><span>서울</span></h1>
+                </div>
+                <div class="divin2-2">
+                    <h1><span>습도</span></h1>
+                </div>
+                <div class="divin2-2">
+                    <h1><span>풍속</span></h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <script></script>
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<script>
-
-
-
-
-
-</script>
 
 </body>
 </html>
