@@ -9,81 +9,80 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    .divall { width: 600px; height: 400px; border-radius: 30px; display: flex; 
-    }
+    .divall { width: 600px; height: 400px; border-radius: 30px; display: flex; }
 
-    #dimg {background-image: url(https://img1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/bBCf/image/FWbi-kBoq3s3qLShSlLRg0Tdjjc.jpg);
-        background-size: cover;}
+    #dimg { background-image: url(https://gongu.copyright.or.kr/gongu/wrt/cmmn/wrtFileImageView.do?wrtSn=11190339&filePath=L2Rpc2sxL25ld2RhdGEvMjAxNC8yMS9DTFM2L2RpZ2lfMTExOTAzMzlfMDEyMDE0MTExMTUxNQ==&thumbAt=Y&thumbSe=b_tbumb&wrtTy=10006);
+        background-size: cover; }
 
     .divin1 { width: 300px; height: 400px; padding: 50px; }
     #d1-1 { border-top-left-radius: 30px; border-bottom-left-radius: 30px;}
     #d1-2 { border-top-right-radius: 30px; border-bottom-right-radius: 30px;}
 
-    .divin1-1 { border: 1px solid black; border-radius: 20px; width: 140px; height: 100px; display: flex;
-        justify-content: center; align-items: center; background-color: rgba(0, 255, 255, 0.4); text-align: center;}
+    .divin1-1 { border: 1px solid black; border-radius: 20px; width: 140px; height: 90px; display: flex;
+        justify-content: center; align-items: center;
+        background-color: rgba(0, 255, 255, 0.6); text-align: center;}
 
-    .divin1-2 { border: 1px solid black; border-radius: 20px; width: 140px; height: 100px; display: flex;
-        justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.737); margin: 25px;}
+    .divin1-2 { border: 1px solid black; border-radius: 20px; width: 140px; height: 150px;
+        background-color: rgba(0, 0, 0, 0.737); margin: 25px;}
 
     .divin2 { width: 300px; height: 400px; padding: 50px; }
     .divin2-1 { width: 200px; height: 80px;border: 1px solid black;
-        border-radius: 20px; background-color: rgba(222, 144, 255, 0.5);
-        display: flex; justify-content: center; align-items: center;}
-    .divin2-2 { width: 150px; height: 70px;border: 1px solid black; 
-        border-radius: 20px; background-color: rgba(231, 255, 179, 0.507); margin: 25px;
-        display: flex; justify-content: center; align-items: center;}
+        border-radius: 20px; background-color: rgba(144, 177, 255, 0.7);
+        display: flex; justify-content: center; align-items: center; }
+    .divin2-2 { width: 170px; height: 70px;border: 1px solid black; 
+        border-radius: 20px; background-color: rgba(231, 255, 179, 0.8); margin: 25px;
+        display: flex; justify-content: center; align-items: center; }
 
-    #op1 {
-        text-align: center;
-    }
+    #op1 { text-align: center; }
 
 </style>
 
 </head>
 <body style="background: linear-gradient(to right, #36d1dc, #5b86e5); ">
-
-
+<br><br><br><br>
 
     <header style="display: flex; justify-content: center;">
         <div class="divall" id="dimg"> 
             <div class="divin1" id="d1-1">
                 <div class="divin1-1"  style="position: relative;  top: -20px; left: -30px;">
-                    <h1><span class="temp"></span></h1>
+                    <h1><span class="temp">기온 00.0ºC</span></h1>
                 </div>
                 <div class="divin1-1" style="position: relative; top: -10px; left: -30px;">
-                    <h1><span class="feel"></span></h1>
+                    <h1><span class="feel">체감온도 00.0ºC</span></h1>
                 </div>
                 <div class="divin1-2" style="position: relative; top: -20px; left: -55px;">
-                    <img src="" alt="">
+                    <h1 id="id12" style="color: white; text-align: center;">날씨</h1>
+                    <img style="position: relative; top: 0px; left: 19px;" src="https://openweathermap.org/img/wn/01n@2x.png" alt="">
                 </div>
             </div>
 
             <div class="divin2" id="d1-2">
                 <div class="divin2-1" style="position: relative; top: -20px; left: 30px;">
-                    <h1><span class="city"></span></h1>
+                    <h1><span class="city">None</span></h1>
                 </div>
-                <div class="divin2-2" style="position: relative; top: -20px; left: 50px;">
-                    <h1><span class="wind"></span></h1>
+                <div class="divin2-2" style="position: relative; top: -20px; left: 30px;">
+                    <h1><span class="wind">풍속 0.00</span></h1>
                 </div>
-                <div class="divin2-2" style="position: relative; top: -20px; left: 50px;">
-                    <h1><span class="humidity"></span></h1>
+                <div class="divin2-2" style="position: relative; top: -20px; left: 30px;">
+                    <h1><span class="humidity">습도 0%</span></h1>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <select name="" id="sel1" style="width: 160px; height: 60px; font-size: 25px;
+                    background: linear-gradient(to right, #62f5cee0, #bdf72ace); position: relative; top: -25px; left: 45px;
+                    border-radius: 20px; color: rgb(0, 0, 0); border: none;">
+                        <option id="op1" value="none">선택</option>
+                        <option id="op1" value="seoul">서울</option>
+                        <option id="op1" value="busan">부산</option>
+                        <option id="op1" value="tokyo">도쿄</option>
+                        <option id="op1" value="osaka">오사카</option>
+                        <option id="op1" value="kyoto">교토</option>
+                        <option id="op1" value="barcelona">바르셀로나</option>
+                    </select>
                 </div>
             </div>
         </div>
     </header>
-<br><br><br><br>
-
-    <div style="display: flex; justify-content: center;">
-        <select name="" id="sel1" style="width: 600px; height: 100px; font-size: 50px; background: linear-gradient(to right, #62f5ce, #bdf72a); ;
-        border-radius: 20px; color: rgb(42, 130, 255); border: none;">
-            <option id="op1" value="seoul">서울</option>
-            <option id="op1" value="busan">부산</option>
-            <option id="op1" value="tokyo">도쿄</option>
-            <option id="op1" value="osaka">오사카</option>
-            <option id="op1" value="kyoto">교토</option>
-            <option id="op1" value="barcelona">바르셀로나</option>
-        </select>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
@@ -101,67 +100,45 @@
                 let 도시이름 = document.querySelector('.city')
                 도시이름.textContent = response.data.name
 
-                let 체감온도  = (response.data.main.feels_like-273.15).toFixed(1)
+                let 체감온도 = (response.data.main.feels_like-273.15).toFixed(1)
                 let 체감온도지정 = document.querySelector(".feel")
-                체감온도지정.textContent = "체감온도" + 체감온도 + "ºC"
-
-                let 습도  = response.data.main.humidity
+                let 습도 = response.data.main.humidity
                 let 습도지정 = document.querySelector(".humidity")
-                습도지정.textContent = "습도 " + 습도 + "%"
-
-                let 기온  = (response.data.main.temp-273.15).toFixed(1)
+                let 기온 = (response.data.main.temp-273.15).toFixed(1)
                 let 기온지정 = document.querySelector(".temp")
-                기온지정.textContent = "기온" + 기온 + "ºC"
-
                 let 풍속  = (response.data.wind.speed)
                 let 풍속지정 = document.querySelector(".wind")
-                풍속지정.textContent = "풍속 " + 풍속
-
-                let 아이콘코드 =  response.data.weather[0].icon
-                let 날씨아이콘 =  document.querySelector("img")
-                날씨아이콘.setAttribute("src", `https://openweathermap.org/img/wn/${아이콘코드}@2x.png`)
-
+                let 아이콘코드 = response.data.weather[0].icon
+                let 날씨아이콘 = document.querySelector("img")
+                let 날씨 = document.querySelector("#id12")
                 let 배경이미지 = document.querySelector('#dimg')
 
-                if (response.data.name == 'Seoul') {
-                    document.getElementById('dimg').style.backgroundImage = "url('https://img1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/bBCf/image/FWbi-kBoq3s3qLShSlLRg0Tdjjc.jpg')";
-                    
+                if (response.data.name == "None" ) {
+                    체감온도지정.textContent = "체감온도 0.00ºC";
+                    습도지정.textContent = "습도 0%";
+                    기온지정.textContent = "기온 00.0ºC";
+                    풍속지정.textContent = "풍속 0.00";
+                    날씨.textContent = '날씨';
+                    날씨아이콘.setAttribute("src", `https://openweathermap.org/img/wn/01n@2x.png`);
+                } else {
+                    체감온도지정.textContent = "체감온도" + 체감온도 + "ºC";
+                    습도지정.textContent = "습도 " + 습도 + "%";
+                    기온지정.textContent = "기온" + 기온 + "ºC";
+                    풍속지정.textContent = "풍속 " + 풍속;
+                    날씨.textContent = '날씨';
+                    날씨아이콘.setAttribute("src", `https://openweathermap.org/img/wn/${아이콘코드}@2x.png`);
                 }
 
-                if (response.data.name == 'Busan') {
-                    document.getElementById('dimg').style.backgroundImage = "url('https://visitbusan.net/uploadImgs/files/cntnts/20191229153530528')";
-                    
-                }
-
-                if (response.data.name == 'Tokyo') {
-                    document.getElementById('dimg').style.backgroundImage = "url('https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/01/a0001495/img/basic/a0001495_main.jpg')";
-                    
-                }
-
-                if (response.data.name == 'Osaka') {
-                    document.getElementById('dimg').style.backgroundImage = "url('https://d28dpoj42hxr8c.cloudfront.net/files/topics/9586_ext_14_ko_0.jpg?v=1449751963')";
-                    
-                }
-
-                if (response.data.name == 'Kyoto') {
-                    document.getElementById('dimg').style.backgroundImage = "url('https://article-image.travel.navitime.jp/img/NTJtrv0153-ko/Top-1.jpg')";
-                    
-                }
-
-                if (response.data.name == 'Barcelona') {
-                    document.getElementById('dimg').style.backgroundImage = "url('https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/b41acf66-b33b-448c-8144-d9aba0df12c0.jpeg')";
-                    
-                }
-
-                console.log(response.data.name)
-
-
-
-
+                if (response.data.name == 'None') { document.getElementById('dimg').style.backgroundImage = "url('https://gongu.copyright.or.kr/gongu/wrt/cmmn/wrtFileImageView.do?wrtSn=11190339&filePath=L2Rpc2sxL25ld2RhdGEvMjAxNC8yMS9DTFM2L2RpZ2lfMTExOTAzMzlfMDEyMDE0MTExMTUxNQ==&thumbAt=Y&thumbSe=b_tbumb&wrtTy=10006')"; }
+                if (response.data.name == 'Seoul') { document.getElementById('dimg').style.backgroundImage = "url('https://img1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/bBCf/image/FWbi-kBoq3s3qLShSlLRg0Tdjjc.jpg')"; }
+                if (response.data.name == 'Busan') { document.getElementById('dimg').style.backgroundImage = "url('https://visitbusan.net/uploadImgs/files/cntnts/20191229153530528')"; }
+                if (response.data.name == 'Tokyo') { document.getElementById('dimg').style.backgroundImage = "url('https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/01/a0001495/img/basic/a0001495_main.jpg')"; }
+                if (response.data.name == 'Osaka') { document.getElementById('dimg').style.backgroundImage = "url('https://d28dpoj42hxr8c.cloudfront.net/files/topics/9586_ext_14_ko_0.jpg?v=1449751963')"; }
+                if (response.data.name == 'Kyoto') { document.getElementById('dimg').style.backgroundImage = "url('https://article-image.travel.navitime.jp/img/NTJtrv0153-ko/Top-1.jpg')"; }
+                if (response.data.name == 'Barcelona') { document.getElementById('dimg').style.backgroundImage = "url('https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/b41acf66-b33b-448c-8144-d9aba0df12c0.jpeg')"; }
             })
         })
 
     </script>
-
 </body>
 </html>
