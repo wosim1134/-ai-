@@ -1,21 +1,14 @@
-a0, a1 = map(int, input().split())
-c = int(input())
-d = int(input())
+import sys
+input = sys.stdin.readline
 
-if (a0 - c) * d + a1 <= 0 and a0 <= c:
-    print(1)
-else:
-    print(0)
+a, b = map(int, input().split())
+c = list(map(int, input().split()))
+d = 0
 
-
-# a0n + a1 <= cn
-
-# (a0 - c)n + a1 <= 0, n >= d
-#
-# c == a0:  a1 == 0, d = X
-#
-# c > a0:  d >= a1
-#
-#
-#
-#
+for i in range(a-2):
+    for j in range(i+1, a-1):
+        for k in range(j+1, a):
+            e = c[i]+c[j]+c[k]
+            if d <= e <= b:
+                d = e
+print(d)
