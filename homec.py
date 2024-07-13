@@ -1,7 +1,6 @@
 import sys
 input = sys.stdin.readline
-a, b, c, d, e, f = map(int, input().split())
+n, m = map(int, input().split())
 
-y = (c*d-a*f) / (b*d-a*e)
-x = (-b*y+c)/a
-print(int(x), int(y))
+a = [input().rstrip() for i in range(n)]
+print(a)
