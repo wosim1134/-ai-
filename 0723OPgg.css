@@ -1,0 +1,42 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { background-color: rgb(219, 219, 219); }
+
+.container { margin: 0 auto; width: 1000px; }
+
+.container section {
+    background-color: aliceblue; margin: 20px 0;
+    border-radius: 10px;
+}
+
+/* 검색 메뉴 */
+.search_menu {
+    height: 100px; padding: 10px;
+
+}
+
+.search_menu .search_bar {
+    width: 50%; height: 80px;
+    border: 1px solid rgb(150, 150, 150); border-radius: 40px;
+    margin: 0 auto;
+    display: flex; justify-content: space-around; align-items: center;
+}
+
+.search_menu .search_bar input {
+    border: none;
+    border-right: 1px solid rgb(74, 74, 74);
+    font-size: 15pt;
+    width: 150px; height: 40px; text-align: center;
+}
+
+.search_button {
+    background-color: skyblue;
+    border: none; width: 70px; height: 50px; border-radius: 20px;
+    font-weight: 900; font-size: 15pt;
+    cursor: pointer;
+}
+
+/*플레이어 메뉴*/
+.player_menu {
+    height: 130px; padding: 10px;
+}
