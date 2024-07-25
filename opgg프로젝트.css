@@ -75,4 +75,6 @@ body { background-color: rgb(234, 234, 234);}
 .score .death {color: #F00;}
 .item {flex:3}
 .item img {width: 25px;}
-.users {flex:3; display: flex; justify-content: space-between;}
+.users {flex:3; display: flex; justify-content: space-between; text-align: left;}
+.users .team1 {flex: 1;}
+.users .team2 {flex: 1;}
