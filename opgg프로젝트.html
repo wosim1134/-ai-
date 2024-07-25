@@ -289,6 +289,9 @@
                     if(response.data.info.participants[i].puuid == puuid) { // 이 조건이 성립하는 사람이 오제무
                         console.log(response.data.info.participants[i].riotIdGameName)
                         console.log(i)
+
+
+
                         win = response.data.info.participants[i].win // 승리여부
                         챔피언 = response.data.info.participants[i].championName // 챔피언 픽
                         레벨 = response.data.info.participants[i].champLevel // 레벨
@@ -332,6 +335,10 @@
                 }
                 else {
                     게임.classList.add("defeat")
+                }
+
+                if (게임모드 == 'strawberry') {
+                    return
                 }
 
 
