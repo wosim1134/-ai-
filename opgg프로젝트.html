@@ -10,8 +10,8 @@
     <div class="container">
         <section class="search_menu">
             <div class="search_bar">
-                <input type="text" class="name" placeholder="이름" value="아기토끼">
-                <input type="text" class="tag" placeholder="태그" value="냐영토끼">
+                <input type="text" class="name" value="아기토끼" placeholder="이름">
+                <input type="text" class="tag" value="냐영토끼" placeholder="태그">
                 <button class="search_button">검색</button>
             </div>
         </section>
@@ -119,7 +119,7 @@
                     <img src="https://opgg-static.akamaized.net/meta/images/lol/14.14.1/item/3031.png" class="item4" alt="아이템4">
                     <img src="https://opgg-static.akamaized.net/meta/images/lol/14.14.1/item/3031.png" class="item5" alt="아이템5">
                     <img src="https://opgg-static.akamaized.net/meta/images/lol/14.14.1/item/3031.png" class="item6" alt="아이템6">
-                    <img src="https://opgg-static.akamaized.net/meta/images/lol/14.14.1/item/3031.png" class="item7" alt="아이템7">
+                    <img src="https://opgg-static.akamaized.net/meta/images/lol/14.14.1/item/3031.png" class="item6" alt="아이템7">
                 </div>
                 <div class="users">
                     <div class="team1">
@@ -185,95 +185,140 @@
         </section>
     </div>
 
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
 
-    const API_KEY = 'RGAPI-7ad16158-9b8a-4090-b19e-7397f43452fb'
-    let 닉네임 = document.querySelector('.name')
-    let 태그 = document.querySelector('.tag')
+        const API_KEY = "RGAPI-dec5fb8b-3f97-4149-a77c-eae86e3c47e2"
+        let 닉네임 = document.querySelector(".name")
+        let 태그 = document.querySelector(".tag")
 
-    let puuid
-    let 레벨
-    let 프사번호
-    let id
-
-    // 검색 버튼에 클릭 이벤트 걸기
-    const 검색버튼 = document.querySelector(".search_button")
-    검색버튼.addEventListener("click", async function () { //
-        // 1. ACCOUNT API 들어가기
-        await axios.get(`https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${닉네임.value}/${태그.value}?api_key=${API_KEY}`)
-        .then(function (response) {
-            console.log(response);
-            puuid = response.data.puuid
-
-            document.querySelector(".player_info h1").textContent = response.data.gameName + "#" + response.data.tagLine
-
-        })
-
-        // 2. summoner API 들어감 : 유저의 레벨, 프로필이미지, 아이디
-        await axios.get(`https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${API_KEY}`)
-        .then(function (response) {
-            console.log(response);
-            레벨 = response.data.summonerLevel
-            프사번호 = response.data.profileIconId
-            id = response.data.id
-
-            document.querySelector('.player_info h2 span').textContent = 레벨  // 레벨 변경
-            document.querySelector('.player img').setAttribute('src', `https://opgg-static.akamaized.net/meta/images/profile_icons/profileIcon${프사번호}.jpg?image=e_upscale,q_auto,f_webp,w_auto&v=1721451321478`)  // 레벨 변경
-
-        })
-
-
-
-        // 3-1. LEGEND API 들어감 : 티어, 승패
-        await axios.get(`https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${id}?api_key=${API_KEY}`)
-        .then(function (response) {
-            console.log(response);
-
-            // 솔랭
-            if (response.data[0] != undefined) {
-            const 솔랭이미지 = document.querySelector('.player_menu .solo img')
-            솔랭이미지.setAttribute("src", `https://opgg-static.akamaized.net/images/medals_new/${(response.data[0].tier).toLowerCase()}.png`)
-
-            document.querySelector(".solo .win").textContent = response.data[0].wins //
-            document.querySelector(".solo .lose").textContent = response.data[0].losses //
-            document.querySelector(".solo .rate").textContent = (response.data[0].wins / (response.data[0].wins + response.data[0].losses) * 100).toFixed(2)
-            }
-
-            // 자랭
-            if (response.data[1] != undefined && response.data[1].queueType == "RANKED_FLEX_SR") {
-            const 자랭이미지 = document.querySelector('.player_menu .flex img')
-            자랭이미지.setAttribute("src", `https://opgg-static.akamaized.net/images/medals_new/${(response.data[1].tier).toLowerCase()}.png`)
-
-            document.querySelector(".flex .win").textContent = response.data[1].wins //
-            document.querySelector(".flex .lose").textContent = response.data[1].losses //
-            document.querySelector(".flex .rate").textContent = (response.data[1].wins / (response.data[1].wins + response.data[1].losses) * 100).toFixed(2)
-            }
-
-        else if (response.data[2] != undefined && response.data[2].queueType == "RANKED_FLEX_SR") {
-            const 자랭이미지 = document.querySelector('.player_menu .flex img')
-            자랭이미지.setAttribute("src", `https://opgg-static.akamaized.net/images/medals_new/${(response.data[2].tier).toLowerCase()}.png`)
-
-            document.querySelector(".flex .win").textContent = response.data[2].wins //
-            document.querySelector(".flex .lose").textContent = response.data[2].losses //
-            document.querySelector(".flex .rate").textContent = (response.data[2].wins / (response.data[2].wins + response.data[2].losses) * 100).toFixed(2)
-            }
-
-        })
-
-        // 3-2. WATCH API 들어감 : puuid로 20개 게임 불러오기
-        await axios.get(`https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=20&api_key=${API_KEY}`)
-        .then(function (response) {
-            console.log(response);
-        })
-
-
-
-
-
+        let puuid
+        let 레벨
+        let 프사번호
+        let id
         
 
-    })
+
+        // 검색 버튼을 클릭하면 모든 검색이 실행된다. 기능 추가해야함
+        const 검색버튼 = document.querySelector(".search_button") // 버튼 지정
+        검색버튼.addEventListener("click", async function() { // 검색버튼 클릭하면 이벤트 실행
+
+            // 1. ACCOUNT API 들어가기 : puuid 가져오기
+            await axios.get(`https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${닉네임.value}/${태그.value}?api_key=${API_KEY}`)
+            .then(function (response) {
+                console.log(response);
+                puuid = response.data.puuid
+
+                document.querySelector(".player_info h1").textContent = response.data.gameName +"#" + response.data.tagLine
+            })
+
+            // 2. SUMMONER API 들어감 : 유저의 레벨, 프로필이미지, id
+            await axios.get(`https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${API_KEY}`)
+            .then(function (response) {
+                console.log(response);
+                레벨 = response.data.summonerLevel
+                프사번호 = response.data.profileIconId
+                id = response.data.id
+
+                document.querySelector(".player_info h2 span").textContent = 레벨 //레벨 변경
+                document.querySelector(".player img").setAttribute("src", `https://opgg-static.akamaized.net/meta/images/profile_icons/profileIcon${프사번호}.jpg`) // 프사 변경
+            })
+
+            // 3-1. LEAGUE API 들어감 : 티어, 승패 등등의 전적
+            await axios.get(`https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${id}?api_key=${API_KEY}`)
+            .then(function (response) {
+                console.log(response);
+
+                // 솔랭 데이터 변경
+                if(response.data[0] != undefined) {
+                    const 솔랭이미지 = document.querySelector(".player_menu .solo img")
+                    솔랭이미지.setAttribute("src", `https://opgg-static.akamaized.net/images/medals_new/${(response.data[0].tier).toLowerCase()}.png`)
+
+                    document.querySelector(".solo .win").textContent = response.data[0].wins //솔랭 승리
+                    document.querySelector(".solo .lose").textContent = response.data[0].losses //솔랭 패배
+                    document.querySelector(".solo .rate").textContent = (response.data[0].wins / (response.data[0].wins + response.data[0].losses) * 100).toFixed(2)  // 솔랭 승률
+                }
+
+                // 자랭 데이터 변경
+                if(response.data[1] != undefined && response.data[1].queueType == "RANKED_FLEX_SR") {
+                    const 자랭이미지 = document.querySelector(".player_menu .flex img")
+                    자랭이미지.setAttribute("src", `https://opgg-static.akamaized.net/images/medals_new/${(response.data[1].tier).toLowerCase()}.png`) // 티어이미지 변경
+
+                    document.querySelector(".flex .win").textContent = response.data[1].wins //자랭 승리
+                    document.querySelector(".flex .lose").textContent = response.data[1].losses //자랭 패배
+                    document.querySelector(".flex .rate").textContent = (response.data[1].wins / (response.data[1].wins + response.data[1].losses) * 100).toFixed(2) // 자랭 승률
+                }
+                else if (response.data[2] != undefined && response.data[2].queueType == "RANKED_FLEX_SR") {
+                    const 자랭이미지 = document.querySelector(".player_menu .flex img")
+                    자랭이미지.setAttribute("src", `https://opgg-static.akamaized.net/images/medals_new/${(response.data[2].tier).toLowerCase()}.png`) // 티어이미지 변경
+
+                    document.querySelector(".flex .win").textContent = response.data[2].wins //자랭 승리
+                    document.querySelector(".flex .lose").textContent = response.data[2].losses //자랭 패배
+                    document.querySelector(".flex .rate").textContent = (response.data[2].wins / (response.data[2].wins + response.data[2].losses) * 100).toFixed(2) // 자랭 승률
+                }
+            })
+
+            // 3-2. MATCH API 들어감 : puuid로 20개 게임 불러오기
+            await axios.get(`https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=20&api_key=${API_KEY}`)
+            .then(function (response) {
+                console.log(response);
+
+                // 20개 게임 코드 불러오기
+                let 코드들20개 = response.data
+                console.log(코드들20개);
+
+
+                // 각게임들 코드 가지고
+
+                게임데이터가져오기(코드들20개[0])
+
+
+
+
+
+
+            })
+
+
+        })
+
+
+
+        function 게임데이터가져오기 ( 매치코드 ) {
+            axios.get(`https://asia.api.riotgames.com/lol/match/v5/matches/${매치코드}?api_key=${API_KEY}`)
+            .then(function (response) {
+                console.log(response)
+
+                console.log('게임모드', response.data.info.gameMode)
+
+                console.log('참여자들', response.data.info.participants)
+
+
+            })
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </script>
