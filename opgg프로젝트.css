@@ -60,7 +60,7 @@ body { background-color: rgb(234, 234, 234);}
 
 /* 20개 게임들 */
 .game20_menu {padding: 20px; text-align: center;}
-.game {display: flex; align-items: center; padding: 10px;}
+.game {display: flex; align-items: center; padding: 10px; margin-bottom: 20px;}
 .victory {background-color: rgb(215, 244, 255); border-left: 6px solid skyblue;}
 .defeat {background-color: rgb(255, 219, 225); border-left: 6px solid rgb(255, 159, 175);}
 
