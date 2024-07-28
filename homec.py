@@ -2,4 +2,5 @@ a = int(input())
 b = [tuple(map(int, input().split())) for i in range(a)]
 
 c = sorted(b, key=lambda point: (point[0], point[1]))
-print(c)
+for i in c:
+    print(f'{i[0]} {i[1]}')
