@@ -1,14 +1,13 @@
 import sys
 input = sys.stdin.readline
 
-a = int(input())
-b = [list(input().split()) for i in range(a)]
+n = int(input().strip())
+coords = list(map(int, input().split()))
 
-for i in range(a):
-    b[i][0] = int(b[i][0])
-    b[i].append(i)
+sorted_coords = sorted(set(coords))
 
-b.sort(key=lambda x: (x[0], x[2]))
+coord_dict = {value: index for index, value in enumerate(sorted_coords)}
 
-for i in b:
-    print(f'{i[0]} {i[1]}')
+compressed_coords = [coord_dict[x] for x in coords]
+
+print(' '.join(map(str, compressed_coords)))
