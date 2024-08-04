@@ -1,29 +1,18 @@
 import sys
 input = sys.stdin.readline
 
-# 포켓몬 수와 질문 수 입력 받기
 a, b = map(int, input().split())
 
-# 포켓몬 딕셔너리 초기화
 pokemon = {}
+name_to_index = {}
 for i in range(a):
-    pokemon[i + 1] = input().strip()
+    name = input().strip()
+    pokemon[i + 1] = name
+    name_to_index[name] = i + 1
 
-# 질문 리스트 초기화
-queries = []
-for i in range(b):
+for _ in range(b):
     q = input().strip()
-    try:
-        queries.append(int(q))
-    except:
-        queries.append(q)
-
-# 포켓몬 이름 리스트 생성
-pokemon_names = list(pokemon.values())
-
-# 질문 처리 및 출력
-for q in queries:
-    if isinstance(q, int):
-        print(pokemon[q])
+    if q.isdigit():
+        print(pokemon[int(q)])
     else:
-        print(pokemon_names.index(q) + 1)
+        print(name_to_index[q])
