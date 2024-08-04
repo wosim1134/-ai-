@@ -1,24 +1,29 @@
 import sys
-import heapq
+input = sys.stdin.readline
 
-T = sys.stdin.readline
+Num = []
+Num_dict = {}
 
-a = int(T())
-b = list(map(int, T().split()))
-c = [0] * a
+Count1 = int(input())
+Number1 = list(map(int, input().split()))
+Count2 = int(input())
+Number2 = list(map(int, input().split()))
+Number_1 = sorted(set(Number1))
+Number_2 = sorted(set(Number2))
 
-min_heap = [(value, index) for index, value in enumerate(b)]
-heapq.heapify(min_heap)
+a = 0
+b = 0
 
-e = 0
+print(Number1)
+print(Number2)
+print(Number_1)
+print(Number_2)
 
-while min_heap:
-    mi, w = heapq.heappop(min_heap)
-    if b[w] == mi:
-        for i in range(a):
-            if b[i] == mi:
-                c[i] = e
-                b[i] = float('inf')
-        e += 1
+while a <= Count1 and b <= Count2:
+    if Number_1[a] == Number_2[b]:
+        Num_dict[Number_2[b]] = 1
+    
 
-print(*c)
+    a += 1
+    b += 1
+print(Num_dict)
