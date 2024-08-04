@@ -1,18 +1,23 @@
 import sys
 input = sys.stdin.readline
 
-a = int(input())
-dict1 = {}
-d = []
+a, b = map(int, input().split())
+pokemon = {}
+c = []
 for i in range(a):
-    b, c = input().split()
-    dict1[b] = c
-    if dict1[b] == 'leave':
-        del dict1[b]
+    pokemon[i+1] = input().strip()
 
-for i in dict1.items():
-    d.append(i)
-d.sort(key=lambda x: x[0])
+for i in range(b):
+    q = input().strip()
+    try:
+        c.append(int(q))
+    except:
+        c.append(q)
 
-for i in reversed(d):
-    print(i[0])
+w = list(pokemon.values())
+
+for i in c:
+    if type(i) == int:
+        print(pokemon[i])
+    elif type(i) == str:
+        print(w.index(i) + 1)
