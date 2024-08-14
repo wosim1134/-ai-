@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+
+        .box { width: 200px; height: 200px; background-color: aqua; border: 1px black solid; }
+
+
+    </style>
+
+
+
+
+
+</head>
+<body>
+
+    <div class="box">박스1</div>
+    <div class="box">박스2</div>
+    <div class="box">박스3</div>
+    <div class="box">박스4</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // querySelectorAll
+        const 모든박스 = document.querySelectorAll(".box")
+        console.log(모든박스)
+        모든박스[0].style.color = "red"
+        모든박스[1].style.color = "blue"
+        모든박스[2].style.color = "green"
+        모든박스[3].style.fontSize = "30pt"
+
+        //forEach
+
+        모든박스.forEach(function (태그) {
+            태그.style.fontSize = "30pt"
+            태그.style.color = "tomato"
+        })
+
+
+        // map
+
+        let array = [1, 2, 3, 4, 5]
+
+
+    </script>
+
+</body>
+</html>
