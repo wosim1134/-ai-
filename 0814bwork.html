@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>foreach실습</title>
+
+    <style>
+
+        .box { width: 600px; height: 400px; border-bottom: 1px solid black;}
+        .bo1 { display: grid; 
+        grid-template-columns: 1fr 1fr;}
+        img { width: 200px; height:  200px;}
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <h1>Your Shopping Cart</h1>
+    <p>forEach 함수를 사용할 것</p>
+    <p>Quantity의 각 버튼마다 동일한 event를 일괄 적용할 것</p>
+
+    <div class="bo1">
+        <div class="box">
+            <h1>충만치킨 1마리</h1>
+            <img src="/img-1.JPG" alt="">
+            <p>Price: \<span class="price">21000</span></p>
+            <label for="">Quantity: <input type="number" min="0" max="100" value="0" class="won"></label>
+        </div>
+
+        <div class="box">
+            <h1>쌀통닭 1마리</h1>
+            <img src="/img-1.JPG" alt="">
+            <p>Price: \<span class="price">17000</span></p>
+            <label for="">Quantity: <input type="number" min="0" max="100" value="0" class="won"></label>
+        </div>
+
+        <div class="box">
+            <h1>옥야식당 국밥</h1>
+            <img src="/img-1.JPG" alt="">
+            <p>Price: \<span class="price">10000</span></p>
+            <label for="">Quantity: <input type="number" min="0" max="100" value="0" class="won"></label>
+        </div>
+
+        <div class="box">
+            <h1>청하감자탕</h1>
+            <img src="/img-1.JPG" alt="">
+            <p>Price: \<span class="price">8000</span></p>
+            <label for="">Quantity: <input type="number" min="0" max="100" value="0" class="won"></label>
+        </div>
+    </div>
+
+    <h2>Total: \<span class="total">0</span></h2>
+
+<script>
+
+    document.querySelectorAll('input').forEach(input => {
+        input.addEventListener("input", () => {
+            let total = 0;
+
+            document.querySelectorAll(".box").forEach(box => {
+                const price = parseInt(box.querySelector(".price").textContent)
+                const Quantity = parseInt(box.querySelector(".won").value)
+
+                total = price * Quantity
+                console.log(total)
+            })
+
+            total = document.querySelector(".total").textContent
+        })
+    })
+
+</script>
+
+</body>
+</html>

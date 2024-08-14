@@ -40,6 +40,7 @@
 
 
     <script>
+
         // querySelectorAll
         const 모든박스 = document.querySelectorAll(".box")
         console.log(모든박스)
@@ -47,6 +48,7 @@
         모든박스[1].style.color = "blue"
         모든박스[2].style.color = "green"
         모든박스[3].style.fontSize = "30pt"
+
 
         //forEach
 
@@ -59,6 +61,33 @@
         // map
 
         let array = [1, 2, 3, 4, 5]
+        console.log(array)
+
+        let 새로운array
+        새로운array = array.map(function(원소) {
+            console.log(원소*2)
+            return 원소*2
+        })
+        console.log(array)
+        console.log(새로운array)
+
+        //filter. 조건에 맞는 원소 필터링
+
+        let 필터링한array = array.filter(function(원소) {
+            return 원소 > 3
+        })
+        console.log(필터링한array)
+
+
+
+
+
+
+
+
+
+
+
 
 
     </script>
