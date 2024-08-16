@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머</title>
+
+    <style>
+
+        #di1 { margin-left: auto; margin-right: auto; width: 1000px; border: 1px solid black;
+        text-align: center;
+        }
+
+        span { font-size: 50px;}
+
+    </style>
+
+</head>
+<body>
+    <div id="di1">
+        <p>시간설정<input type="text" placeholder="초 입력" class="num">초 <button class="start">시작</button>
+            <button class="end">정지</button></p><br>
+        <h1>남은 시간</h1>
+        <h2><span class="pri">0</span>s</h2>
+
+    </div>
+
+    <script>
+
+        let 시작 = document.querySelector('.start')
+        let 정지 = document.querySelector('.end')
+        let 초 = document.querySelector('.num')
+        let 출력 = document.querySelector('.pri')
+        let 실행
+        let 타이머 = function () {
+            출력.textContent = 타임 -= 1
+        }
+
+        시작.addEventListener( 'click', function () {
+            타임 = 초.value
+            출력.textContent = 타임
+            clearInterval(실행)
+            실행 = setInterval(타이머, 1000)
+            setTimeout(function() {
+                clearInterval(실행)
+            }, 타임*1000)
+        })
+
+        정지.addEventListener('click', function () {
+            clearInterval(실행)
+        })
+
+    </script>
+
+</body>
+</html>

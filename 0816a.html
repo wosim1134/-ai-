@@ -4,8 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+
+
+
+    </style>
+
 </head>
 <body>
-    
+
+    <h2> 1. 일정 시간 마다 함수 코드를 실행 (주기적으로 실행) </h2>
+    <h2> 2. 일정 시간 후에 함수 코드를 실행 (타이머가 완료되면 한번 실행)</h2>
+
+
+    <script>
+
+        let setInterval에넣을함수 = function () {
+            console.log("일정 시간 마다 실행하는 setInterval 함수")
+        }
+
+        // 일정 시간 마다
+
+        let setInterval함수 = setInterval(setInterval에넣을함수, 1000) // Interval : 간격 + 컴퓨터에서는 1000이 1초임
+
+        clearInterval(setInterval함수) //setInterval로 돌아가는 함수 정지
+
+        // 일정 시간 후에 (타이머)
+
+        let setTimeout함수 = setTimeout(function () {
+            alert("3초 지남")
+        }, 3000)
+
+        clearTimeout(setTimeout함수)
+
+    </script>
+
 </body>
 </html>
