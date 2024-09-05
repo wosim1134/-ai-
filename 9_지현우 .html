@@ -47,10 +47,10 @@
                         type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">스킬</a></li>
 
                     <li class="nav-item"><a class="nav-link" href="#!"
-                        type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3">잘하는 일</a></li>
+                        type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3">포트폴리오</a></li>
 
                     <li class="nav-item"><a class="nav-link" href="#!"
-                        type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4">포트폴리오</a></li>
+                        type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4">백준</a></li>
 
                 </ul>
             </div>
@@ -58,7 +58,7 @@
     </nav>
 
 
-    <div class="container bg-light" style="width: auto; height: 100%; border-radius: 20px; padding-top: 25px;">
+    <div class="container" style="width: auto; height: 100%; border-radius: 20px; padding-top: 25px; background: linear-gradient(to top, #4b4b4b, #ffffff);">
 
         <div id="carouselExampleIndicators" class="carousel slide">
             <div class="carousel-indicators">
@@ -276,8 +276,10 @@
 
 
 
-
                 <div class="carousel-item">
+                    <div style="text-align: center;"><br><br><br>
+                        <p style="font-size: 30px; font-weight: 900;">portfolio</p><br><br><br>
+                    </div>
                     <div class="row" style="height: auto;">
                         <div class="col-lg-6">
 
@@ -447,11 +449,12 @@
                 <div class="carousel-item">
 
                     <div class="card" style="width: w-100; border-radius: 20px; height: 1150px;">
-                        <img src="/img-1.JPG" class="card-img-top" style="border-top-left-radius: 20px; border-top-right-radius: 20px;" alt="...">
+                        <img src="https://onlinejudgeimages.s3-ap-northeast-1.amazonaws.com/images/boj-og.png" class="card-img-top" style="border-top-left-radius: 20px; border-top-right-radius: 20px;" alt="...">
                         <div class="card-body bg-dark" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
                             <p class="card-text" style="color: white;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <p class="card-text" style="color: white;">dsadsadsdsdssdddddddddddddddddddsdddddddddddddddddddddddddddddddddddddddddddddddd</p>
                             <p class="card-text" style="color: white;"></p>
+                            <a href="https://www.acmicpc.net/user/pubglnar">dsdsdsadsadsdsadsadass</a>
                         </div>
                     </div>
 
@@ -486,12 +489,12 @@
     <script>
         const introText = document.querySelectorAll("span");
 
-window.onload = () => {
-  let timer = 100;
-  introText.forEach((item) => {
-    item.style.animation = `fade 500ms ${(timer += 50)}ms forwards`;
-  });
-};
+        window.onload = () => {
+        let timer = 100;
+        introText.forEach((item) => {
+            item.style.animation = `fade 500ms ${(timer += 50)}ms forwards`;
+            });
+        };
     </script>
 
 </body>
