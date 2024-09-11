@@ -30,7 +30,48 @@
 
 
 
+    <script>
 
+        let pro = new Promise( (성공, 실패) => {
+            let success = true;  // 작업이 성공했다고 가정
+            if (success) {
+                성공("작업이 성공했습니다!");
+            } 
+            else {
+                실패("작업이 실패했습니다.");
+            }
+        })
+
+        pro.then((message) => {console.log(message, '성공')}) //
+        .catch((message) => {console.log(message, '실패')})
+
+
+
+
+
+
+        // 그냥 코드
+        async function 싱크와await사용(params) {
+            성공1()
+            성공함2()
+        }
+
+
+
+        // sync와 wait를 사용한 코드
+        async function 싱크와await사용(params) {
+            await 성공1()
+            await 성공함2()
+        }
+
+
+
+
+
+
+
+
+    </script>
 
 </body>
 </html>
