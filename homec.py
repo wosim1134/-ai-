@@ -1,6 +1,12 @@
-a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-b = ['a', 'b', 'c', 'd', 'e']
-print(a)
-print()
-b[len(b):] = [1]
-print(b)
+import sys
+input = sys.stdin.readline
+
+a, b = map(int, input().split())
+
+c = [input().rstrip() for i in range(a)]
+d = [input().rstrip() for i in range(b)]
+e = []
+
+c = sorted(c, key=lambda x: x)
+d = sorted(d, key=lambda x: x)
+
