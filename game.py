@@ -13,8 +13,8 @@ CROSS_WIDTH = 15
 SPACE = CELL_SIZE // 4
 
 # 색상
-BG_COLOR     = (28, 170, 156)
-LINE_COLOR   = (23, 145, 135)
+BG_COLOR     = (255, 0, 0)  # 빨간색
+LINE_COLOR   = (200, 0, 0)  # 어두운 빨간색
 CIRCLE_COLOR = (239, 231, 200)
 CROSS_COLOR  = (66,  66,  66)
 TEXT_COLOR   = (255, 255, 255)
