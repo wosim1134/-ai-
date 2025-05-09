@@ -1,166 +1,149 @@
 import pygame
 import sys
 
-# 초기 설정
-pygame.init()
-WIDTH, HEIGHT = 800, 600
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("얼음 밀기 게임 - 지현우")
-clock = pygame.time.Clock()
+# --- 설정값 ------------------------------------------------
+WIDTH, HEIGHT = 600, 800
+ROWS, COLS = 3, 3
+CELL_SIZE = WIDTH // COLS
+LINE_WIDTH = 10
+
+# 원과 X 선 두께 및 여백
+CIRCLE_WIDTH = 10
+CROSS_WIDTH = 15
+SPACE = CELL_SIZE // 4
 
 # 색상
-WHITE = (255, 255, 255)
-ICE_COLOR = (173, 216, 230)
-WALL_COLOR = (100, 100, 100)
-TARGET_COLOR = (255, 100, 100)
-CLEAR_COLOR = (0, 128, 0)
+BG_COLOR     = (28, 170, 156)
+LINE_COLOR   = (23, 145, 135)
+CIRCLE_COLOR = (239, 231, 200)
+CROSS_COLOR  = (66,  66,  66)
+TEXT_COLOR   = (255, 255, 255)
 
-# 폰트
+# Pygame 초기화
+pygame.init()
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption('Tic-Tac-Toe')
+screen.fill(BG_COLOR)
 font = pygame.font.SysFont(None, 48)
 
-# 게임 맵 정의 (여러 레벨)
-levels = [
-    [
-        "########",
-        "#   X  #",
-        "#      #",
-        "#  O   #",
-        "#      #",
-        "########"
-    ],
-    [
-        "##########",
-        "#   X    #",
-        "#        #",
-        "#    #   #",
-        "#   O    #",
-        "#        #",
-        "##########"
-    ]
-]
+# 보드 상태: 0=빈칸, 1=X, 2=O
+board = [[0] * COLS for _ in range(ROWS)]
+current_player = 1  # 1=X, 2=O
+game_over = False
+winner = 0  # 0=진행중, 1=X, 2=O, 3=무승부
 
-current_level = 0
-TILE_SIZE = 60
+# --- 그리기 함수들 ------------------------------------------
+def draw_grid():
+    # 수평선
+    for i in range(1, ROWS):
+        pygame.draw.line(screen, LINE_COLOR,
+                         (0, CELL_SIZE * i),
+                         (WIDTH, CELL_SIZE * i),
+                         LINE_WIDTH)
+    # 수직선
+    for j in range(1, COLS):
+        pygame.draw.line(screen, LINE_COLOR,
+                         (CELL_SIZE * j, 0),
+                         (CELL_SIZE * j, WIDTH),  # 높이는 격자까지만
+                         LINE_WIDTH)
 
-# 전역 변수 초기화
-grid = []
-ice_pos = [0, 0]
-ice_pixel_pos = [0, 0]
-target_pos = [0, 0]
-moving = False
-move_dir = (0, 0)
-move_end = (0, 0)
-start_pixel = (0, 0)
-speed = 300  # 픽셀/초
+def draw_figures():
+    for row in range(ROWS):
+        for col in range(COLS):
+            x = col * CELL_SIZE
+            y = row * CELL_SIZE
+            if board[row][col] == 1:
+                # X 그리기
+                pygame.draw.line(screen, CROSS_COLOR,
+                                 (x + SPACE,     y + SPACE),
+                                 (x + CELL_SIZE - SPACE, y + CELL_SIZE - SPACE),
+                                 CROSS_WIDTH)
+                pygame.draw.line(screen, CROSS_COLOR,
+                                 (x + SPACE,     y + CELL_SIZE - SPACE),
+                                 (x + CELL_SIZE - SPACE, y + SPACE),
+                                 CROSS_WIDTH)
+            elif board[row][col] == 2:
+                # O 그리기
+                pygame.draw.circle(screen, CIRCLE_COLOR,
+                                   (x + CELL_SIZE//2, y + CELL_SIZE//2),
+                                   CELL_SIZE//2 - SPACE,
+                                   CIRCLE_WIDTH)
 
-# 맵 파싱 함수
-def load_map(level):
-    global grid, ice_pos, ice_pixel_pos, target_pos
-    grid = []
-    for y, row in enumerate(level):
-        row_list = []
-        for x, tile in enumerate(row):
-            if tile == 'O':
-                ice_pos[:] = [x, y]
-                ice_pixel_pos[:] = [x * TILE_SIZE, y * TILE_SIZE]
-                row_list.append(' ')
-            elif tile == 'X':
-                target_pos[:] = [x, y]
-                row_list.append(' ')
-            else:
-                row_list.append(tile)
-        grid.append(row_list)
+def render_status():
+    msg = ''
+    if winner == 1:
+        msg = 'Player X wins! (R: Restart)'
+    elif winner == 2:
+        msg = 'Player O wins! (R: Restart)'
+    elif winner == 3:
+        msg = 'Draw! (R: Restart)'
+    else:
+        msg = f'Player {"X" if current_player==1 else "O"}\'s turn'
+    text = font.render(msg, True, TEXT_COLOR)
+    # 하단 중앙에 렌더
+    screen.blit(text, ((WIDTH - text.get_width())//2, WIDTH + (HEIGHT - WIDTH - text.get_height())//2))
 
-# 그리기 함수
-def draw():
-    screen.fill(WHITE)
-    for y, row in enumerate(grid):
-        for x, tile in enumerate(row):
-            rect = pygame.Rect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
-            if tile == '#':
-                pygame.draw.rect(screen, WALL_COLOR, rect)
-            if [x, y] == target_pos:
-                pygame.draw.rect(screen, TARGET_COLOR, rect)
-    ice_rect = pygame.Rect(ice_pixel_pos[0], ice_pixel_pos[1], TILE_SIZE, TILE_SIZE)
-    pygame.draw.rect(screen, ICE_COLOR, ice_rect)
-    if ice_pos == target_pos and not moving:
-        text = font.render("클리어!", True, CLEAR_COLOR)
-        screen.blit(text, (WIDTH//2 - text.get_width()//2, HEIGHT//2 - text.get_height()//2))
-    pygame.display.flip()
+# --- 게임 로직 --------------------------------------------
+def check_winner(player):
+    # 행 검사
+    for row in board:
+        if all(cell == player for cell in row):
+            return True
+    # 열 검사
+    for col in range(COLS):
+        if all(board[row][col] == player for row in range(ROWS)):
+            return True
+    # 대각선 검사
+    if all(board[i][i] == player for i in range(ROWS)):
+        return True
+    if all(board[i][COLS-1-i] == player for i in range(ROWS)):
+        return True
+    return False
 
-# 이동 애니메이션 시작 (벽 앞에서 정확히 멈춤)
-def start_move(dx, dy):
-    global moving, move_dir, move_end, start_pixel
-    rows, cols = len(grid), len(grid[0])
-    x0, y0 = ice_pos
-    nx, ny = x0 + dx, y0 + dy
-    if not (0 <= nx < cols and 0 <= ny < rows) or grid[ny][nx] == '#':
-        return
-    # 미끄러질 최종 위치 계산
-    fx, fy = nx, ny
-    while True:
-        tx, ty = fx + dx, fy + dy
-        if not (0 <= tx < cols and 0 <= ty < rows) or grid[ty][tx] == '#':
-            break
-        fx, fy = tx, ty
-        if [fx, fy] == target_pos:
-            break
-    # 애니메이션 시작 정보
-    start_pixel = (ice_pixel_pos[0], ice_pixel_pos[1])
-    move_end = (fx * TILE_SIZE, fy * TILE_SIZE)
-    # 방향 벡터 (단위)
-    delta_x = move_end[0] - start_pixel[0]
-    delta_y = move_end[1] - start_pixel[1]
-    dir_x = delta_x / abs(delta_x) if delta_x != 0 else 0
-    dir_y = delta_y / abs(delta_y) if delta_y != 0 else 0
-    move_dir = (dir_x, dir_y)
-    moving = True
-    ice_pos[:] = [fx, fy]
+def is_board_full():
+    return all(cell != 0 for row in board for cell in row)
 
-# 초기화
-load_map(levels[current_level])
+def restart_game():
+    global board, current_player, game_over, winner
+    board = [[0] * COLS for _ in range(ROWS)]
+    current_player = 1
+    game_over = False
+    winner = 0
+    screen.fill(BG_COLOR)
+    draw_grid()
 
-# 메인 루프
-running = True
-level_cleared = False
-while running:
-    dt = clock.tick(60) / 1000.0
+# 최초 그리기
+draw_grid()
+
+# --- 메인 루프 --------------------------------------------
+while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
-        if event.type == pygame.KEYDOWN and not moving:
-            if ice_pos == target_pos:
-                level_cleared = True
-            if level_cleared:
-                if event.key == pygame.K_SPACE:
-                    current_level += 1
-                    if current_level >= len(levels):
-                        running = False
+            pygame.quit()
+            sys.exit()
+
+        if event.type == pygame.MOUSEBUTTONDOWN and not game_over:
+            mx, my = event.pos
+            if my < WIDTH:  # 격자 영역 클릭
+                row = my // CELL_SIZE
+                col = mx // CELL_SIZE
+                if board[row][col] == 0:
+                    board[row][col] = current_player
+                    # 승리 검사
+                    if check_winner(current_player):
+                        game_over = True
+                        winner = current_player
+                    elif is_board_full():
+                        game_over = True
+                        winner = 3  # 무승부
                     else:
-                        level_cleared = False
-                        load_map(levels[current_level])
-            else:
-                if event.key == pygame.K_LEFT:
-                    start_move(-1, 0)
-                elif event.key == pygame.K_RIGHT:
-                    start_move(1, 0)
-                elif event.key == pygame.K_UP:
-                    start_move(0, -1)
-                elif event.key == pygame.K_DOWN:
-                    start_move(0, 1)
+                        current_player = 2 if current_player == 1 else 1
 
-    # 애니메이션 업데이트
-    if moving:
-        ice_pixel_pos[0] += move_dir[0] * speed * dt
-        ice_pixel_pos[1] += move_dir[1] * speed * dt
-        # 도착 여부 판단
-        reached_x = (move_dir[0] > 0 and ice_pixel_pos[0] >= move_end[0]) or (move_dir[0] < 0 and ice_pixel_pos[0] <= move_end[0])
-        reached_y = (move_dir[1] > 0 and ice_pixel_pos[1] >= move_end[1]) or (move_dir[1] < 0 and ice_pixel_pos[1] <= move_end[1])
-        if reached_x and reached_y:
-            ice_pixel_pos[:] = list(move_end)
-            moving = False
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_r:
+                restart_game()
 
-    draw()
-
-pygame.quit()
-sys.exit()
+    # 화면 갱신
+    draw_figures()
+    render_status()
+    pygame.display.update()
