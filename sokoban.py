@@ -3,7 +3,7 @@ import sys
 
 # --- 설정값 ------------------------------------------------
 WIDTH, HEIGHT = 800, 600
-TILE_SIZE = 50
+TILE_SIZE = 40  # 타일 크기를 줄여서 더 많은 공간 활용
 FPS = 60
 
 # 색상
@@ -14,6 +14,7 @@ GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 BROWN = (139, 69, 19)
 GRAY = (128, 128, 128)
+DARK_GREEN = (0, 100, 0)  # 진한 녹색 추가
 
 # 게임 요소
 WALL = '#'
@@ -24,15 +25,76 @@ FLOOR = ' '
 BOX_ON_TARGET = '*'
 PLAYER_ON_TARGET = '+'
 
-# 레벨 1
-LEVEL_1 = [
-    "########",
-    "#      #",
-    "#  .$  #",
-    "#  @   #",
-    "#  .$  #",
-    "#      #",
-    "########"
+# 레벨들
+LEVELS = [
+    # 레벨 1
+    [
+        "#######",
+        "#     #",
+        "#@  $.#",
+        "#     #",
+        "#######"
+    ],
+    # 레벨 2
+    [
+        "#######",
+        "####  #",
+        "#     #",
+        "#@ $# #",
+        "#    .#",
+        "#######"
+    ],
+    # 레벨 3
+    [
+        "#########",
+        "##### ###",
+        "####   ##",
+        "####$$.##",
+        "## $    #",
+        "#  ##@  #",
+        "## ..  ##",
+        "####  ###",
+        "#########"
+    ],
+    # 레벨 4
+    [
+        "######",
+        "# . ##",
+        "#    #",
+        "# .$ #",
+        "###$ #",
+        "### @#",
+        "######"
+    ],
+    # 레벨 5
+    [
+        "#########",
+        "###  $@.#",
+        "### # ###",
+        "#.  $ ###",
+        "#########"
+    ],
+    # 십자형
+    [
+        "#########",
+        "#       #",
+        "#  .$.  #",
+        "#  $@$  #",
+        "#  .$.  #",
+        "#       #",
+        "#########"
+    ],
+    # 최고 난이도
+    [
+        "########",
+        "###  ###",
+        "### . ##",
+        "#.$$.. #",
+        "# #    #",
+        "#  $#$##",
+        "### @ ##",
+        "########"
+    ]
 ]
 
 class Sokoban:
@@ -41,11 +103,18 @@ class Sokoban:
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption('Sokoban')
         self.clock = pygame.time.Clock()
-        self.level = [list(row) for row in LEVEL_1]
+        self.current_level = 0
+        self.load_level(self.current_level)
+        self.moves = 0
+        self.font = pygame.font.SysFont(None, 36)
+        self.level_completed = False  # 레벨 클리어 상태 추가
+
+    def load_level(self, level_num):
+        self.level = [list(row) for row in LEVELS[level_num]]
         self.player_pos = self.find_player()
         self.targets = self.find_targets()
         self.moves = 0
-        self.font = pygame.font.SysFont(None, 36)
+        self.level_completed = False  # 레벨 로드시 클리어 상태 초기화
 
     def find_player(self):
         for y, row in enumerate(self.level):
@@ -65,18 +134,26 @@ class Sokoban:
     def draw(self):
         self.screen.fill(WHITE)
         
+        # 게임 보드 중앙 정렬을 위한 오프셋 계산
+        board_width = len(self.level[0]) * TILE_SIZE
+        board_height = len(self.level) * TILE_SIZE
+        offset_x = (WIDTH - board_width) // 2
+        offset_y = (HEIGHT - board_height) // 2
+        
         # 게임 보드 그리기
         for y, row in enumerate(self.level):
             for x, cell in enumerate(row):
-                rect = pygame.Rect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
+                rect = pygame.Rect(offset_x + x * TILE_SIZE, 
+                                 offset_y + y * TILE_SIZE, 
+                                 TILE_SIZE, TILE_SIZE)
                 
                 if cell == WALL:
                     pygame.draw.rect(self.screen, GRAY, rect)
                 elif cell in [TARGET, PLAYER_ON_TARGET]:
                     pygame.draw.rect(self.screen, GREEN, rect)
                     pygame.draw.circle(self.screen, BLACK, 
-                                     (x * TILE_SIZE + TILE_SIZE//2, 
-                                      y * TILE_SIZE + TILE_SIZE//2), 
+                                     (offset_x + x * TILE_SIZE + TILE_SIZE//2, 
+                                      offset_y + y * TILE_SIZE + TILE_SIZE//2), 
                                      TILE_SIZE//4)
                 elif cell in [BOX, BOX_ON_TARGET]:
                     pygame.draw.rect(self.screen, BROWN, rect)
@@ -87,8 +164,8 @@ class Sokoban:
                 
                 pygame.draw.rect(self.screen, BLACK, rect, 1)
 
-        # 이동 횟수 표시
-        moves_text = self.font.render(f'Moves: {self.moves}', True, BLACK)
+        # 이동 횟수와 현재 레벨 표시
+        moves_text = self.font.render(f'Level: {self.current_level + 1}  Moves: {self.moves}', True, BLACK)
         self.screen.blit(moves_text, (10, HEIGHT - 40))
 
         pygame.display.flip()
@@ -126,6 +203,13 @@ class Sokoban:
                     return False
         return True
 
+    def next_level(self):
+        if self.current_level < len(LEVELS) - 1:
+            self.current_level += 1
+            self.load_level(self.current_level)
+            return True
+        return False
+
     def run(self):
         while True:
             for event in pygame.event.get():
@@ -134,23 +218,44 @@ class Sokoban:
                     sys.exit()
                 
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_LEFT:
-                        self.move(-1, 0)
-                    elif event.key == pygame.K_RIGHT:
-                        self.move(1, 0)
-                    elif event.key == pygame.K_UP:
-                        self.move(0, -1)
-                    elif event.key == pygame.K_DOWN:
-                        self.move(0, 1)
-                    elif event.key == pygame.K_r:  # 재시작
-                        self.__init__()
+                    if not self.level_completed:  # 레벨이 클리어되지 않았을 때만 이동 가능
+                        if event.key == pygame.K_LEFT:
+                            self.move(-1, 0)
+                        elif event.key == pygame.K_RIGHT:
+                            self.move(1, 0)
+                        elif event.key == pygame.K_UP:
+                            self.move(0, -1)
+                        elif event.key == pygame.K_DOWN:
+                            self.move(0, 1)
+                    
+                    if event.key == pygame.K_r:  # 재시작
+                        self.load_level(self.current_level)
 
             self.draw()
             
             if self.check_win():
-                win_text = self.font.render('You Win! Press R to restart', True, RED)
-                self.screen.blit(win_text, (WIDTH//2 - 150, HEIGHT//2))
-                pygame.display.flip()
+                self.level_completed = True  # 레벨 클리어 상태 설정
+                
+                # 클리어 메시지 표시
+                clear_text = self.font.render('Level Clear!', True, DARK_GREEN)
+                clear_rect = clear_text.get_rect(center=(WIDTH//2, HEIGHT//2 - 30))
+                self.screen.blit(clear_text, clear_rect)
+                
+                if self.current_level < len(LEVELS) - 1:
+                    next_text = self.font.render('Next Level...', True, DARK_GREEN)
+                    next_rect = next_text.get_rect(center=(WIDTH//2, HEIGHT//2 + 30))
+                    self.screen.blit(next_text, next_rect)
+                    pygame.display.flip()
+                    
+                    # 1초 대기 후 다음 레벨로
+                    pygame.time.wait(1000)
+                    self.next_level()
+                else:
+                    # 모든 레벨 클리어
+                    win_text = self.font.render('Congratulations! You completed all levels!', True, DARK_GREEN)
+                    win_rect = win_text.get_rect(center=(WIDTH//2, HEIGHT//2))
+                    self.screen.blit(win_text, win_rect)
+                    pygame.display.flip()
 
             self.clock.tick(FPS)
 
