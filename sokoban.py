@@ -74,27 +74,7 @@ LEVELS = [
         "#.  $ ###",
         "#########"
     ],
-    # 십자형
-    [
-        "#########",
-        "#       #",
-        "#  .$.  #",
-        "#  $@$  #",
-        "#  .$.  #",
-        "#       #",
-        "#########"
-    ],
-    # 최고 난이도
-    [
-        "########",
-        "###  ###",
-        "### . ##",
-        "#.$$.. #",
-        "# #    #",
-        "#  $#$##",
-        "### @ ##",
-        "########"
-    ]
+
 ]
 
 class Sokoban:
@@ -110,6 +90,14 @@ class Sokoban:
         self.level_completed = False  # 레벨 클리어 상태 추가
         self.bg_img = pygame.image.load('background.png').convert()  # 배경 이미지 불러오기
         self.bg_img = pygame.transform.scale(self.bg_img, (WIDTH, HEIGHT))  # 전체 화면 크기로 조정
+        self.box_img = pygame.image.load('box.png').convert_alpha()  # 박스 이미지 불러오기
+        self.box_img = pygame.transform.scale(self.box_img, (TILE_SIZE, TILE_SIZE))
+        self.goal_img = pygame.image.load('goal.png').convert_alpha()  # 도착지 이미지 불러오기
+        self.goal_img = pygame.transform.scale(self.goal_img, (TILE_SIZE, TILE_SIZE))
+        self.player_img = pygame.image.load('player.png').convert_alpha()  # 플레이어 이미지 불러오기
+        self.player_img = pygame.transform.scale(self.player_img, (TILE_SIZE, TILE_SIZE))
+        self.wall_img = pygame.image.load('wall.png').convert_alpha()  # 벽 이미지 불러오기
+        self.wall_img = pygame.transform.scale(self.wall_img, (TILE_SIZE, TILE_SIZE))
 
     def load_level(self, level_num):
         self.level = [list(row) for row in LEVELS[level_num]]
@@ -151,17 +139,20 @@ class Sokoban:
                                  TILE_SIZE, TILE_SIZE)
                 
                 if cell == WALL:
-                    pygame.draw.rect(self.screen, GRAY, rect)
-                elif cell in [TARGET, PLAYER_ON_TARGET]:
-                    pygame.draw.rect(self.screen, GREEN, rect)
-                    pygame.draw.circle(self.screen, BLACK, 
-                                     (offset_x + x * TILE_SIZE + TILE_SIZE//2, 
-                                      offset_y + y * TILE_SIZE + TILE_SIZE//2), 
-                                     TILE_SIZE//4)
-                elif cell in [BOX, BOX_ON_TARGET]:
-                    pygame.draw.rect(self.screen, BROWN, rect)
-                elif cell in [PLAYER, PLAYER_ON_TARGET]:
-                    pygame.draw.rect(self.screen, BLUE, rect)
+                    self.screen.blit(self.wall_img, rect)
+                elif cell == TARGET:
+                    self.screen.blit(self.goal_img, rect)
+                elif cell == BOX:
+                    self.screen.blit(self.box_img, rect)
+                elif cell == BOX_ON_TARGET:
+                    # 골대 먼저 그리고 그 위에 박스 그리기
+                    self.screen.blit(self.goal_img, rect)
+                    self.screen.blit(self.box_img, rect)
+                elif cell == PLAYER:
+                    self.screen.blit(self.player_img, rect)
+                elif cell == PLAYER_ON_TARGET:
+                    self.screen.blit(self.goal_img, rect)
+                    self.screen.blit(self.player_img, rect)
                 else:
                     pygame.draw.rect(self.screen, WHITE, rect)
                 
