@@ -108,6 +108,8 @@ class Sokoban:
         self.moves = 0
         self.font = pygame.font.SysFont(None, 36)
         self.level_completed = False  # 레벨 클리어 상태 추가
+        self.bg_img = pygame.image.load('background.png').convert()  # 배경 이미지 불러오기
+        self.bg_img = pygame.transform.scale(self.bg_img, (WIDTH, HEIGHT))  # 전체 화면 크기로 조정
 
     def load_level(self, level_num):
         self.level = [list(row) for row in LEVELS[level_num]]
@@ -132,7 +134,8 @@ class Sokoban:
         return targets
 
     def draw(self):
-        self.screen.fill(WHITE)
+        # 배경 이미지를 전체 화면에 한 번만 그리기
+        self.screen.blit(self.bg_img, (0, 0))
         
         # 게임 보드 중앙 정렬을 위한 오프셋 계산
         board_width = len(self.level[0]) * TILE_SIZE
